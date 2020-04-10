@@ -78,12 +78,33 @@ class Sppd extends CI_Controller{
             echo json_encode($data);
             // var_dump($data);exit;
     }
-    function surat(){
+    function sppdkabad(){
         $data=array();
         
         $data['nipp'] = $this->m_main->gettable('tbl_user');
         // var_dump($data['spt']);exit;
-        $this->load->view('surat/surat',$data);
+        $this->load->view('surat/sppdkabad',$data);
+    }
+    function sppdstaf(){
+        $data=array();
+        
+        $data['nipp'] = $this->m_main->gettable('tbl_user');
+        // var_dump($data['spt']);exit;
+        $this->load->view('surat/sppdstaf',$data);
+    }
+    function sptkabad(){
+        $data=array();
+        
+        $data['nipp'] = $this->m_main->gettable('tbl_user');
+        // var_dump($data['spt']);exit;
+        $this->load->view('surat/sptkabad',$data);
+    }
+    function sptstaf(){
+        $data=array();
+        
+        $data['nipp'] = $this->m_main->gettable('tbl_user');
+        // var_dump($data['spt']);exit;
+        $this->load->view('surat/sptstaf',$data);
     }
     function doc(){
         $this->load->view('surat/doc');
