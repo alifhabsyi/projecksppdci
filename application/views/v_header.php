@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+  <title>SPPD | Dashboard </title>
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="<?php echo base_url().'plugins/fontawesome-free/css/all.min.css'?>">
+  <!-- overlayScrollbars -->
+  <link rel="stylesheet" href="<?php echo base_url().'plugins/overlayScrollbars/css/OverlayScrollbars.min.css'?>">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="<?php echo base_url().'dist/css/adminlte.min.css'?>">
+  <!-- Google Font: Source Sans Pro -->
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+</head>
+<body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
+<div class="wrapper">
+  <!-- Navbar -->
+  <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+  
+        <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
+      
+  <!-- Left navbar links -->
+    <h2 >SISTEM INFORMASI SPPD </h2>
+
+    <!-- Right navbar links -->
+  </nav>
+  <!-- /.navbar -->
+
+  <!-- Main Sidebar Container -->
+  <aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <!-- Brand Logo -->
+    <a href="/sppd/main" class="brand-link">
+      <img src="<?php echo base_url().'dist/img/hss.png'?>" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
+           style="opacity: .8">
+      <span class="brand-text font-weight-light">SPPD</span>
+    </a>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <!-- Sidebar user panel (optional) -->
+          <!-- profil -->
+          <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+         <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-square text-warning"></i>
+              <p>
+                Nama User
+                <i class="right fas fa-angle-right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="far fa-circle nav-icon text-info"></i>
+                  <p>User Information</p>
+                </a>
+              </li>
+             
+              <li class="nav-item">
+                <a href="<?php echo base_url();?>login/logout" class="dropdown-item">
+									<i class="fas fa-circle nav-icon text-danger"></i>Log Out
+								</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+          <!-- end profil -->
+        
+        
+        
+   
+
+      <!-- Sidebar Menu -->
+      <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+          <!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
+          
+          
+            
+          
+          <!-- <li class="nav-header">MULTI LEVEL EXAMPLE</li> -->
+          
+          <!-- start pegawai -->
+          <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-circle text-danger"></i>
+              <p>
+                Pegawai
+                <i class="right fas fa-angle-right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="/sppd/pgw_rincian/addpegawai" class="nav-link">
+                  <i class="far fa-circle nav-icon text-info"></i>
+                  <p>Input Pegawai</p>
+                </a>
+              </li>
+             
+              <li class="nav-item">
+                <a href="/sppd/pgw_rincian/listpegawai" class="nav-link">
+                  <i class="far fa-circle nav-icon text-info"></i>
+                  <p>List Pegawai</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+         <!-- end pegawai  -->
+           <!-- start spt -->
+        <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-circle text-danger"></i>
+              <p>
+                USULAN
+                <i class="right fas fa-angle-right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="/sppd/usulan/addusul" class="nav-link">
+                  <i class="far fa-circle nav-icon text-info"></i>
+                  <p>Input Usulan</p>
+                </a>
+              </li>
+             
+              <li class="nav-item">
+                <a href="/sppd/usulan/listusul" class="nav-link">
+                  <i class="far fa-circle nav-icon text-info"></i>
+                  <p>List Usulan</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+        <!-- end spt -->
+          <!-- start spt -->
+        <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-circle text-danger"></i>
+              <p>
+                SPT
+                <i class="right fas fa-angle-right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="/sppd/spt_rincian/addspt" class="nav-link">
+                  <i class="far fa-circle nav-icon text-info"></i>
+                  <p>Input SPT</p>
+                </a>
+              </li>
+             
+              <li class="nav-item">
+                <a href="/sppd/spt_rincian/listspt" class="nav-link">
+                  <i class="far fa-circle nav-icon text-info"></i>
+                  <p>List SPT</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+        <!-- end spt -->
+         <!-- start sppd -->
+         <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-circle text-danger"></i>
+              <p>
+                SPPD
+                <i class="right fas fa-angle-right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="/sppd/sppd/inpsppd" class="nav-link">
+                  <i class="far fa-circle nav-icon text-info"></i>
+                  <p>Input  SPPD</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="/sppd/sppd/listsppd" class="nav-link">
+                  <i class="far fa-circle nav-icon text-info"></i>
+                  <p>List SPPD</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+        <!-- end sppd -->
+       
+        <!-- start rincian biaya -->
+        <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-circle text-danger"></i>
+              <p>
+                Rincian Biaya
+                <i class="right fas fa-angle-right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="/sppd/rincian/addrincian" class="nav-link">
+                  <i class="far fa-circle nav-icon text-info"></i>
+                  <p>Input Rincian Biaya</p>
+                </a>
+              </li>
+             
+              <li class="nav-item">
+                <a href="/sppd/rincian/listrinci" class="nav-link">
+                  <i class="far fa-circle nav-icon text-info"></i>
+                  <p>List Rincian Biaya</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+        <!-- end sppd -->
+         
+        </ul>
+      </nav>
+      <!-- /.sidebar-menu -->
+    </div>
+    <!-- /.sidebar -->
+  </aside>
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <!-- <h2 class="m-0 text-dark"></h2> -->
+            <h3 class="m-0 text-dark">BADAN KEPEGAWAIAN DAERAH</h3>
+          
+          </div><!-- /.col -->
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item active">Dashboard v2</li>
+            </ol>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+
+   
+  <!-- /.content-wrapper -->
+
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+  </aside>
+  <!-- /.control-sidebar -->
+
+  
