@@ -1,6 +1,13 @@
 
 <?php
 // var_dump($no_suratm);exit;
+$nama1 = $this->session->userdata("nama");
+if (is_null($nama1))
+{
+	redirect(base_url('login/salah'));
+}
+else
+{
 $id_spt="";
 $no_spt="";
 $nip="";
@@ -297,3 +304,4 @@ $("#dasar").val(d[0].dasar);
     });
 }
 </script>
+<?php } ?>

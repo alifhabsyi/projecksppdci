@@ -1,5 +1,12 @@
 
 <?php
+$nama1 = $this->session->userdata("nama");
+if (is_null($nama1))
+{
+	redirect(base_url('login/salah'));
+}
+else
+{
 $nama ="";
 $nip_admin ="";
 $tempat_lahir ="";
@@ -481,3 +488,6 @@ foreach($pgw as $a):
 
 	</div>
 </div>
+<?php 
+}
+?>

@@ -25,7 +25,7 @@ class Login extends CI_Controller{
 		);
 		$cek              = $this->m_login->cek_login("tbl_user",$where)->num_rows();
 		if($cek > 0){
-			$this->db->select('nip_admin,pangkat,jabatan_admin,username,password,nama,');    //ngambil query
+			$this->db->select('nip_admin,pangkat,jabatan_admin,username,password,nama,tipeuser');    //ngambil query
 			$this->db->where('username=',$username);                     //ngambil query
 			$data['user']    = $this->db->get('tbl_user');
 			// var_dump($data['user']);exit;
@@ -35,6 +35,7 @@ class Login extends CI_Controller{
 					$username      = $row['username'];
 					$nip_admin          = $row['nip_admin'];
 					$nama          = $row['nama'];
+					$tipeuser          = $row['tipeuser'];
 					$jabatan_admin       = $row['jabatan_admin'];
 					$pangkat       = $row['pangkat'];
 					$password      = $row['password'];
@@ -45,6 +46,7 @@ class Login extends CI_Controller{
 					'username' => $username,
 					'nip_admin' => $nip_admin,
 					'nama' => $nama,
+					'tipeuser' => $tipeuser,
 					'jabatan_admin' => $jabatan_admin,
 					'pangkat' => $pangkat,
 					'password' => $password,
