@@ -80,9 +80,15 @@ class Sppd extends CI_Controller{
     }
     function sppdkabad(){
         $data=array();
+        if($this->input->get('ns')!=""){
+        $id=$this->input->get('ns');
+            $where=array(
+            'no_sppd'=> $id,
+        );
+        $data['sppd']=$this->m_rinci->get1data("tbl_sppd",$where);
         
-        $data['nipp'] = $this->m_main->gettable('tbl_user');
         // var_dump($data['spt']);exit;
+        }
         $this->load->view('surat/sppdkabad',$data);
     }
     function sppdstaf(){

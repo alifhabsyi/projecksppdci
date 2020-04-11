@@ -1,6 +1,14 @@
 <?php
- $nama="";
-foreach($nipp as $a):
+$nama1 = $this->session->userdata("nama");
+if (is_null($nama1))
+{
+	redirect(base_url('login/salah'));
+}
+else
+{
+$nama="";
+var_dump($sppd);exit;
+foreach($sppd as $a):
 		
 	$nama=$a->nama;
 	endforeach;
@@ -37,3 +45,4 @@ theViewer.defaultViewer = new theViewer.Viewer({});
 </div>
 </body>
 </html>
+<?php } ?>

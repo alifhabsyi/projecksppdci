@@ -1,4 +1,11 @@
 <?php
+$nama1 = $this->session->userdata("nama");
+if (is_null($nama1))
+{
+	redirect(base_url('login/salah'));
+}
+else
+{
  $nama="";
 foreach($nipp as $a):
 		
@@ -39,3 +46,4 @@ theViewer.defaultViewer = new theViewer.Viewer({});
 </div>
 </body>
 </html>
+<?php } ?>

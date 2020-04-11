@@ -1,5 +1,12 @@
 
 <?php
+$nama1 = $this->session->userdata("nama");
+if (is_null($nama1))
+{
+	redirect(base_url('login/salah'));
+}
+else
+{
 $no_kwt="";$no_sppd="";$nip="";$nama="";$jabatan="";$program="";$kegiatan="";$kode_rek="";$nama_rek="";
 $tgl_pergi="";$tgl_pulang="";$biaya_harian="";$biaya_riil="";$tiket_pergi="";$tiket_pulang="";$biaya_inap="";$nosppd="";
 
@@ -328,3 +335,4 @@ function loadsppd() {
 }
 
 </script>
+<?php } ?>

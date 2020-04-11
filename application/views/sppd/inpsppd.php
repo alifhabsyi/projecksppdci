@@ -1,7 +1,11 @@
-
-<?php //include "v_header.php";
-?>
 <?php
+$nama1 = $this->session->userdata("nama");
+if (is_null($nama1))
+{
+	redirect(base_url('login/salah'));
+}
+else
+{
 //  var_dump($nip);
 $no_spt="";$no_sppd="";$pejabat_perintah="";
 $nama="";$nip="";$pangkat="";$jabatan="";$jenis_angkutan="";
@@ -505,3 +509,4 @@ function loadnip() {
     });
 }
 </script>
+<?php } ?>

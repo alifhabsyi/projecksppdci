@@ -1,3 +1,12 @@
+<?php 
+$nama = $this->session->userdata("nama");
+if (is_null($nama))
+{
+	redirect(base_url('login/salah'));
+}
+else
+{
+	?>
 <div class="card-header" align=center>
 		<b>
 			<h2>List SPPD</h2>
@@ -37,7 +46,7 @@
                 echo"
                         <a class='fa fa-edit' href='";base_url();echo"inpsppd?n=$a->no_sppd' style='color:blue'></a>
 						<a class='fa fa-trash' onclick='return checkDelete()' href='";base_url();echo"../sppd/dlt_sppd?n=$a->no_sppd' style='color:red'></a>
-						<a class='fa fa-print' href='";base_url();echo"cetakadm?ns=$a->no_sppd' target='_blank' onClick='window.location.reload();' style='color:red'>Finish</a>";
+						<a class='fa fa-print' href='";base_url();echo"sppdkabad?ns=$a->no_sppd' target='_blank' onClick='window.location.reload();' style='color:red'>Finish</a>";
                     echo"</td>
                 </tr>
                 ";
@@ -71,3 +80,4 @@
 	}
 
 </script>
+<?php } ?>

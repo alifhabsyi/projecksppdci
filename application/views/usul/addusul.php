@@ -3,7 +3,13 @@
 ?>
 <?php
 //  var_dump($nip);
-
+$nama1 = $this->session->userdata("nama");
+if (is_null($nama1))
+{
+	redirect(base_url('login/salah'));
+}
+else
+{
 $id_usul="";
 $no_suratm="";
 $dasar="";
@@ -270,3 +276,4 @@ function loadnip() {
     });
 }
 </script>
+<?php } ?>
