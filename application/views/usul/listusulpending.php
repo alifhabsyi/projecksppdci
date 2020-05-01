@@ -10,7 +10,7 @@ else
 	?>
 <div class="card-header" align=center>
 		<b>
-			<h2>List USULAN</h2>
+			<h2>List USULAN Pending</h2>
 		</b>
 
 	</div>
@@ -41,7 +41,7 @@ else
                 foreach($usul as $a):
                 echo "
                 <tr>
-                    
+
 					<td>
 						<a >$a->no_suratm
 						</a>
@@ -58,20 +58,19 @@ else
 										  <td>$a->status_spt</td>
                     <td align=center>";
 
-                echo"
-						<a class='fa fa-edit' href='";base_url();echo"addusul?n=$a->id_usul' style='color:blue'></a>";
-				if ($tipe==0 || $tipe==2 || $tipe==3 ){   //rule
-					echo"<a class='fa fa-print' href='";base_url();echo"cetakadm?ns=$a->id_usul' target='_blank' onClick='window.location.reload();' style='color:red'></a>";
-					if ($tipe==0 || $tipe==3 ){   //rule
-				
-						echo"
-						<a class='fa fa-trash' onclick='return checkDelete()' href='";base_url();echo"../usulan/dlt_usul?n=$a->id_usul' style='color:red'></a>";
-					}
-					};
-						echo"</td>
-                </tr>
-                ";
-
+					echo"
+					<a class='fa fa-edit' href='";base_url();echo"addusul?n=$a->id_usul' style='color:blue'></a>";
+			if ($tipe==0 || $tipe==2 || $tipe==3 ){   //rule
+				echo"<a class='fa fa-print' href='";base_url();echo"cetakadm?ns=$a->id_usul' target='_blank' onClick='window.location.reload();' style='color:red'></a>";
+				if ($tipe==0 || $tipe==3 ){   //rule
+			
+					echo"
+					<a class='fa fa-trash' onclick='return checkDelete()' href='";base_url();echo"../usulan/dlt_usul?n=$a->id_usul' style='color:red'></a>";
+				}
+				};
+					echo"</td>
+			</tr>
+			";
             endforeach;
             ?>
                 </tfoot>

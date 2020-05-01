@@ -28,6 +28,7 @@ $tmt_pensiun ="";
 $unit_kerja ="";
 $username ="";
 $password ="";
+$tipeuser="";
 if($this->input->get('n')){
 foreach($pgw as $a):
 
@@ -52,7 +53,7 @@ foreach($pgw as $a):
 		$unit_kerja =$a->unit_kerja;
 		$username =$a->username;
 		$password =$a->password;
-
+	$tipeuser =$a->tipeuser;
 	endforeach;
 	// var_dump($surat);
 }
@@ -477,6 +478,32 @@ foreach($pgw as $a):
 		</div>
 	</div>
 		<!-- end -->
+		<!-- start -->
+	<div class="form-group">
+		<div class=row>
+			<div class="col-sm-2">
+				<label for="">Pangkat</label>
+
+			</div>
+			<div class="col-sm-10">
+				<select class="form-control" name="tipeuser" id="tipeuser" required/>
+					<?php
+						if($this->input->get('n')){
+							echo "<option selected value='$tipeuser'> $tipeuser </option>";
+				}
+					?>
+					<option>Pilih Pangkat Anda...</option>
+					<option>0 (ADMIN)</option>
+					<option>1 (BENDAHARA)</option>
+					<option>2 (KASUBAG UMPEG)</option>
+					<option>3 (KEPALA BADAN)</option>
+					<option>4 (PEGAWAI)</option>
+
+					</select>
+			</div>
+		</div>
+	</div>
+		<!-- end -->
 
 				<div class "form-group" align=center>
                 <button type="reset" name='batals' id='batals' class="btn btn-danger">Batal</button>
@@ -488,6 +515,6 @@ foreach($pgw as $a):
 
 	</div>
 </div>
-<?php 
+<?php
 }
 ?>

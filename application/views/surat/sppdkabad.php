@@ -7,11 +7,11 @@ if (is_null($nama1))
 else
 {
 $nama="";
-var_dump($sppd);exit;
-foreach($sppd as $a):
+//var_dump($sppd);exit;
+//foreach($sppd as $a):
 		
-	$nama=$a->nama;
-	endforeach;
+	//$nama=$a->nama;
+	//endforeach;
 	// var_dump($surat);
 
 ?>

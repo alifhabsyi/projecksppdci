@@ -10,7 +10,7 @@ else
 	?>
 <div class="card-header" align=center>
 		<b>
-			<h2>List Pegawai Hulu Sungai Selatan</h2>
+			<h2>List SPT Pending</h2>
 		</b>
 
 	</div>
@@ -56,51 +56,52 @@ else
                     <td>$a->tujuan_untuk </td>
                     <td>$a->tanggal </td>
                     <td>$a->tempat </td>
-										 <td>$a->dibuat_oleh </td>
-										<td>$a->jabatan_admin </td>
-									  <td>$a->nip_admin </td>
-										<td>$a->dibuat_tgl </td>
-										<td>$a->status_disposisi</td>
+										  <td>$a->dibuat_oleh </td>
+											<td>$a->jabatan_admin </td>
+											<td>$a->nip_admin </td>
+											  <td>$a->dibuat_tgl </td>
+												 <td>$a->status_disposisi </td>
                     <td align=left>";
 
-                echo"
-                        <a class='fa fa-edit' href='";base_url();echo"addspt?n=$a->no_spt' style='color:blue'></a>
-						";
-						if ($tipe==0 || $tipe==2 || $tipe==3 ){
-							echo "<a class='fa fa-print' href='";base_url();echo"../spt_rincian/cetakspt?n=$a->id_spt' target='_blank' onClick='window.location.reload();' style='color:red'></a>";
-							if ($tipe==0 || $tipe==3 ){
-							echo "<a class='fa fa-trash' onclick='return checkDelete()' href='";base_url();echo"../spt_rincian/dlt_spt?n=$a->id_spt' style='color:red'></a>";
-							}
+					echo"
+					<a class='fa fa-edit' href='";base_url();echo"addspt?n=$a->id_spt' style='color:blue'></a>
+					";
+					if ($tipe==0 || $tipe==2 || $tipe==3 ){
+						echo "<a class='fa fa-print' href='";base_url();echo"../spt_rincian/cetakspt?n=$a->id_spt' target='_blank' onClick='window.location.reload();' style='color:red'></a>";
+						if ($tipe==0 || $tipe==3 ){
+						echo "<a class='fa fa-trash' onclick='return checkDelete()' href='";base_url();echo"../spt_rincian/dlt_spt?n=$a->id_spt' style='color:red'></a>";
 						}
-                    echo"</td>
-                </tr>
-                ";
+					}
+				echo"</td>
+			</tr>
+			";
 
-            endforeach;
-            ?>
-                </tfoot>
-        </table>
-        </div>
-</div>
-<!-- /.card-body -->
-<!-- Main Footer -->
+		endforeach;
+		?>
+				</tfoot>
+	</table>
+	</div>
+	</div>
+	<!-- /.card-body -->
+	<!-- Main Footer -->
 
-</div>
+	</div>
 
-<script>
+	<script>
 	$(function () {
-		$("#example1").DataTable();
-		$('#example2').DataTable({
-			"paging": true,
-			"lengthChange": false,
-			"searching": false,
-			"ordering": true,
-			"info": true,
-			"autoWidth": false,
-		});
+	$("#example1").DataTable();
+	$('#example2').DataTable({
+	"paging": true,
+	"lengthChange": false,
+	"searching": false,
+	"ordering": true,
+	"info": true,
+	"autoWidth": false,
+	});
 	});
 	function checkDelete(){
-		return confirm('Are you sure?');
+	return confirm('Are you sure?');
 	}
-</script>
-<?php }?>
+
+	</script>
+	<?php } ?>

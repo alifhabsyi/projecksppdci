@@ -30,9 +30,9 @@ else
 <div class="wrapper">
   <!-- Navbar -->
   <nav class="main-header navbar navbar-expand navbar-white navbar-light">
-  
+
         <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
-      
+
   <!-- Left navbar links -->
     <h2 >SISTEM INFORMASI SPPD </h2>
 
@@ -63,13 +63,7 @@ else
               </p>
             </a>
             <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="#" class="nav-link">
-                  <i class="far fa-circle nav-icon text-info"></i>
-                  <p>User Information</p>
-                </a>
-              </li>
-             
+
               <li class="nav-item">
                 <a href="<?php echo base_url();?>login/logout" class="dropdown-item">
 									<i class="fas fa-circle nav-icon text-danger"></i>Log Out
@@ -79,22 +73,22 @@ else
           </li>
         </ul>
           <!-- end profil -->
-        
-        
-        
-   
+
+
+
+
 
       <!-- Sidebar Menu -->
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-          
-          
-            
-          
+
+
+
+
           <!-- <li class="nav-header">MULTI LEVEL EXAMPLE</li> -->
-          
+
           <!-- start pegawai -->
           <?php if ($tipe==0){   //rule
                 ?>
@@ -107,14 +101,14 @@ else
               </p>
             </a>
             <ul class="nav nav-treeview">
-                
+
               <li class="nav-item">
                 <a href="/sppd/pgw_rincian/addpegawai" class="nav-link">
                   <i class="far fa-circle nav-icon text-info"></i>
                   <p>Input Pegawai</p>
                 </a>
               </li>
-               
+
               <li class="nav-item">
                 <a href="/sppd/pgw_rincian/listpegawai" class="nav-link">
                   <i class="far fa-circle nav-icon text-info"></i>
@@ -126,8 +120,8 @@ else
           <?php } ?>
          <!-- end pegawai  -->
            <!-- start spt -->
-           <?php if ($tipe==0 || $tipe==4){ //rule
-                ?> 
+           <?php if ($tipe!=1 || $tipe!=2){ //rule
+                ?>
         <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-circle text-danger"></i>
@@ -137,27 +131,37 @@ else
               </p>
             </a>
             <ul class="nav nav-treeview">
-           
+            <?php if ($tipe==0 || $tipe==4){ //rule
+                ?>
               <li class="nav-item">
                 <a href="/sppd/usulan/addusul" class="nav-link">
                   <i class="far fa-circle nav-icon text-info"></i>
                   <p>Input Usulan</p>
                 </a>
               </li>
-              
+            <?php } ?>
               <li class="nav-item">
                 <a href="/sppd/usulan/listusul" class="nav-link">
                   <i class="far fa-circle nav-icon text-info"></i>
                   <p>List Usulan</p>
                 </a>
               </li>
+							<?php if ($tipe==0 || $tipe==2 || $tipe==3){ //rule
+                ?>
+              <li class="nav-item">
+                <a href="/sppd/usulan/listusulpending" class="nav-link">
+                  <i class="far fa-circle nav-icon text-info"></i>
+                  <p>List Usulan PENDING!</p>
+                </a>
+              </li>
+              <?php } ?>
             </ul>
           </li>
           <?php }
-                ?> 
+                ?>
         <!-- end spt -->
           <!-- start spt -->
-          <?php if ($tipe==0 || $tipe==2){ //rule
+          <?php if ($tipe==0 || $tipe==2 || $tipe==3){ //rule
                 ?>
         <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
@@ -168,20 +172,28 @@ else
               </p>
             </a>
             <ul class="nav nav-treeview">
-            
+            <?php if ($tipe==0 || $tipe==2 ){ //rule
+                ?>
               <li class="nav-item">
                 <a href="/sppd/spt_rincian/addspt" class="nav-link">
                   <i class="far fa-circle nav-icon text-info"></i>
                   <p>Input SPT</p>
                 </a>
               </li>
-            
+            <?php } ?>
+
               <li class="nav-item">
                 <a href="/sppd/spt_rincian/listspt" class="nav-link">
                   <i class="far fa-circle nav-icon text-info"></i>
                   <p>List SPT</p>
                 </a>
               </li>
+							<li class="nav-item">
+								<a href="/sppd/Spt_rincian/listsptpending" class="nav-link">
+									<i class="far fa-circle nav-icon text-info"></i>
+									<p>List SPT PENDING!</p>
+								</a>
+							</li>
             </ul>
           </li>
           <?php } ?>
@@ -200,7 +212,7 @@ else
             <ul class="nav nav-treeview">
             <?php if ($tipe==0 || $tipe==2){ //rule
                 ?>
-           
+
               <li class="nav-item">
                 <a href="/sppd/sppd/inpsppd" class="nav-link">
                   <i class="far fa-circle nav-icon text-info"></i>
@@ -220,10 +232,10 @@ else
          <?php }
                 ?>
         <!-- end sppd -->
-       
+
         <!-- start rincian biaya -->
-        <?php if ($tipe==0 || $tipe==1 ){ //rule
-                ?> 
+        <?php if ($tipe==0 || $tipe==1 || $tipe==3 ){ //rule
+                ?>
         <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-circle text-danger"></i>
@@ -233,15 +245,16 @@ else
               </p>
             </a>
             <ul class="nav nav-treeview">
-            
+            <?php if ($tipe==0 || $tipe==1 ){ //rule
+                ?>
               <li class="nav-item">
                 <a href="/sppd/rincian/addrincian" class="nav-link">
                   <i class="far fa-circle nav-icon text-info"></i>
                   <p>Input Rincian Biaya</p>
                 </a>
               </li>
-           
-             
+            <?php } ?>
+
               <li class="nav-item">
                 <a href="/sppd/rincian/listrinci" class="nav-link">
                   <i class="far fa-circle nav-icon text-info"></i>
@@ -251,9 +264,9 @@ else
             </ul>
           </li>
         <?php }
-                ?> 
+                ?>
         <!-- end sppd -->
-         
+
         </ul>
       </nav>
       <!-- /.sidebar-menu -->
@@ -270,7 +283,7 @@ else
           <div class="col-sm-6">
             <!-- <h2 class="m-0 text-dark"></h2> -->
             <h3 class="m-0 text-dark">BADAN KEPEGAWAIAN DAERAH</h3>
-          
+
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -283,7 +296,7 @@ else
     </div>
     <!-- /.content-header -->
 
-   
+
   <!-- /.content-wrapper -->
 
   <!-- Control Sidebar -->
@@ -292,5 +305,3 @@ else
   </aside>
   <!-- /.control-sidebar -->
 <?php } ?>
-
-  

@@ -10,17 +10,21 @@ class Main extends CI_Controller{
         // $this->load->library('template');
         $this->load->helper('form');
         $this->load->helper('url');
-		
+
     }
-    
+
     function index(){
     $data=array();
-    $this->template->halaman('dashboard');
+    $this->load->model('m_main');
+       $this->data['total_pegawai'] =  $this->m_main->total_pegawai();
+          $this->data['total_usul'] =  $this->m_main->total_usul();
+             $this->data['total_spt'] =  $this->m_main->total_spt();
+                $this->data['total_kwitansi'] =  $this->m_main->total_kwitansi();
+                   $this->data['total_sppd'] =  $this->m_main->total_sppd();
+    $this->template->halaman('dashboard',$this->data);
 
 
     }
-   
-    
+
+
 }
- 
-   

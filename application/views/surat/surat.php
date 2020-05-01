@@ -38,7 +38,9 @@ theViewer.defaultViewer = new theViewer.Viewer({});
 
 </div>
 </body>
+<script src="print.min.js"></script>
 <script>
+		printJS('docs/PrintJS.pdf');
 		// window.print();
 	</script>
 </html>
