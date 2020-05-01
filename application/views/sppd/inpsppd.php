@@ -9,11 +9,12 @@ else
 //  var_dump($nip);
 $no_spt="";$no_sppd="";$pejabat_perintah="";
 $nama="";$nip="";$pangkat="";$jabatan="";$jenis_angkutan="";
-$dari="";$tempat_tujuan="";$lama_pd="";$tgl_pergi="";$tgl_pulang="";
-$instansi="";$mata_anggaran="";$nospt="";$tujuan_untuk="";
+$dari="";$tempat_tujuan="";$lama_pd="";$tgl_pergi="";$tgl_pulang="";$dibuat_tgl="";
+$instansi="";$mata_anggaran="";$nospt="";$tujuan_untuk="";$no_suratm="";$tgl=date('d/m/Y');$tglbuat=date('Y/m/d');
+// var_dump($tgl);
 if($this->input->get('n')){
 foreach($sppd as $a):
-		
+
 	$no_spt=$a->no_spt;
 	$nospt=$a->no_spt;
 		$no_sppd=$a->no_sppd;
@@ -31,6 +32,9 @@ foreach($sppd as $a):
 		$tgl_pulang=$a->tgl_pulang;
 		$instansi=$a->instansi;
 		$mata_anggaran=$a->mata_anggaran;
+		$dibuat_tgl=$a->dibuat_tgl;
+		$tglbuat=$a->dibuat_tgl;
+		$no_suratm=$a->no_suratm;
 	endforeach;
 	// var_dump($surat);
 }
@@ -49,8 +53,8 @@ foreach($sppd as $a):
 				echo "<form class='form-horizontal' id='submit' action='";echo base_url();echo "sppd/add_sppd' method='post' enctype='multipart/form-data'>";
 			}
 		?>
-        
-				
+
+
 				<div class="form-group">
 					<div class=row>
 						<div class="col-sm-2">
@@ -61,23 +65,23 @@ foreach($sppd as $a):
 						<?php
 						if($this->input->get('n')){
 						?>
-						<input type="text" readonly  class="form-control" id="nospt" name="nospt"  value=<?php echo $no_spt; ?>>	
+						<input type="text" readonly  class="form-control" id="nospt" name="nospt"  value=<?php echo $no_spt; ?>>
 							<?php
 						}else{
 							?>
 						<input type="hidden" required class="form-control" id="nospt" name="nospt"  value=<?php echo $nospt; ?>>
-							
+
 							<select class="form-control" name="no_spt" id="no_spt" required>
 								<option>-- SILAHKAN PILIH NO SPT --</option>
-								<?php 
-								
+								<?php
+
 								foreach ($spt as $nospt):
 									echo "<option value='$nospt->id_spt'>$nospt->no_spt || $nospt->tujuan_untuk</option>";
 								endforeach;
 								?>
-								
+
 							</select>
-						
+
 							<?php
 						}
 						?>
@@ -85,6 +89,19 @@ foreach($sppd as $a):
 						</div>
 					</div>
 
+				</div>
+				<div class="form-group">
+					<div class="row">
+						<div class="col-sm-2">
+							<label for="">No Surat Masuk</label>
+						</div>
+						<div class="col-sm-10">
+							<input type="text" readonly required class="form-control" id="no_suratm" name="no_suratm"
+								placeholder='Auto Load Data'  value=<?php echo $no_suratm; ?>>
+						</div>
+
+
+					</div>
 				</div>
 				<div class="form-group">
 					<div class="row">
@@ -99,7 +116,7 @@ foreach($sppd as $a):
 
 					</div>
 				</div>
-				
+
 				<div class="form-group">
 					<div class=row>
 						<div class="col-sm-2">
@@ -109,11 +126,11 @@ foreach($sppd as $a):
 						<div class="col-sm-10">
 						<textarea class="form-control" name="pejabat_perintah" id="pejabat_perintah" rows="1" readonly=true required ><?php echo $pejabat_perintah; ?></textarea>
 						</div>
-						
+
 					</div>
 
 				</div>
-				
+
 				<div class="form-group">
 					<div class=row>
 						<div class="col-sm-2">
@@ -123,7 +140,7 @@ foreach($sppd as $a):
 						<div class="col-sm-10">
 						<textarea class="form-control" name="nip" id="nip" rows="1" readonly=true required ><?php echo $nip; ?></textarea>
 						</div>
-						
+
 					</div>
 
 				</div>
@@ -136,7 +153,7 @@ foreach($sppd as $a):
 						<div class="col-sm-10">
 						<textarea class="form-control" name="nama" id="nama" rows="1" readonly=true required ><?php echo $nama; ?></textarea>
 						</div>
-						
+
 					</div>
 
 				</div>
@@ -149,7 +166,7 @@ foreach($sppd as $a):
 						<div class="col-sm-10">
 						<textarea class="form-control" name="jabatan" id="jabatan" rows="1" readonly=true required ><?php echo $jabatan; ?></textarea>
 						</div>
-						
+
 					</div>
 
 				</div>
@@ -162,11 +179,11 @@ foreach($sppd as $a):
 						<div class="col-sm-10">
 						<textarea class="form-control" name="pangkat" id="pangkat" rows="1" readonly=true required ><?php echo $pangkat; ?></textarea>
 						</div>
-						
+
 					</div>
 
 				</div>
-				
+
 				<div class="form-group">
 					<div class=row>
 						<div class="col-sm-2">
@@ -231,7 +248,7 @@ foreach($sppd as $a):
 					</div>
 
 				</div>
-				<div class="form-group"> 
+				<div class="form-group">
 					<div class=row>
 						<div class="col-sm-2">
 							<label for="">Tanggal Pergi</label>
@@ -249,7 +266,7 @@ foreach($sppd as $a):
 						</div>
 						<div class="col-sm-4">
 							<div class="form-group">
-								<input type="date" readonly class="form-control" name="tgl_pulang" 
+								<input type="date" readonly class="form-control" name="tgl_pulang"
 									aria-describedby="helpId" placeholder="" id="tgl_pulang" required value=<?php echo $tgl_pergi ?>>
 							</div>
 						</div>
@@ -279,83 +296,41 @@ foreach($sppd as $a):
 					</div>
 
 				</div>
-				<div class "form-group" align=center>
-                <button type="reset" name='batals' id='batals' class="btn btn-danger">Batal</button>
-				    
-                <button type="submit" name='btn_simpan' id=btn_simpan class="btn btn-primary">Simpan</button>
-				</div>
-			</form>
-			<br>
-		
-<?php 
-	if($this->input->get('n')){
-				echo"<form class='form-horizontal' id='editsub' action='";echo base_url();echo "sppd/dtl_insert' method='post' enctype='multipart/form-data' >";			
-		?>
-		<input type="hidden" required class="form-control" id="nosppd" name="nosppd"  value=<?php echo $no_sppd; ?>>
-								
 				<div class="form-group">
 					<div class=row>
 						<div class="col-sm-2">
-							<label for="">NIP</label>
-
-						</div>
-						<div class="col-sm-4">
-							<select class="form-control" name="nip2" id="nip2" required>
-								<option value="pilih">-- SILAHKAN PILIH NIP --</option>
-								<?php 
-								
-								foreach ($nipp as $pgw):
-									echo "<option value='$pgw->nip'>$pgw->nip</option>";
-								endforeach;
-								?>
-								
-							</select>
-						</div>
-					
-				
-						<div class="col-sm-1">
-							<label for="">Nama</label>
-
-						</div>
-						<div class="col-sm-5">
-						<textarea class="form-control" name="nama2" id="nama2" rows="1" readonly=true required ></textarea>
-						</div>
-						
-					</div>
-
-				</div>
-				<div class="form-group"> 
-					<div class=row>
-						<div class="col-sm-2">
-							<label for="">Tanggal Lahir</label>
+							<label for="">Dibuat Tanggal</label>
 
 						</div>
 						<div class="col-sm-4">
 							<div class="form-group">
-								<input type="date" class="form-control" name="tgl_lahir" required aria-describedby="helpId" 
-									placeholder="" required id="tgl_lahir">
+								<input type="text" readonly class="form-control" name="dibuat_tgl" required aria-describedby="helpId"
+								 value=<?php if($dibuat_tgl!=""){ echo $dibuat_tgl;} else { echo $tgl;} ?>
+									placeholder="" id="dibuat_tgl">
+								
 							</div>
-						</div>
-						<div class="col-sm-1">
-							<label for="">Keterangan</label>
-
-						</div>
-						<div class="col-sm-4">
-						<textarea class="form-control" name="keterangan" id="keterangan" rows="1"  required ></textarea>
-						</div>
-						<div class="col-sm-1">
-						<button type="submit" name='btn_simpan' id=btn_simpan class="btn btn-primary">Tambah</button>
+							<input type =hidden name='tglbuat' id='tglbuat' value='<?php echo $tglbuat; ?>'>
+							<input type =text name='id_usul' id='id_usul'>
 						</div>
 					</div>
 
 				</div>
-				</form>
+				<div class "form-group" align=center>
+                <button type="reset" name='batals' id='batals' class="btn btn-danger">Batal</button>
 
-				
+                <button type="submit" name='btn_simpan' id=btn_simpan class="btn btn-primary">Simpan</button>
+
+								   <button type="submit" name='btn_print' id=btn_print class="btn btn-dark">Cetak SPPD</button>
+				</div>
+			</form>
+			<br>
+
+
+
 <div class=container align=center>
 		<div class="card-body">
 		<b><h4>DATA PENGIKUT SPPD</h4></b>
-		<div class="table table-responsive">	
+		<div class="table table-responsive">
 			<table id="example1" class="table table-bordered table-striped">
 				<thead>
 					<tr>
@@ -364,11 +339,11 @@ foreach($sppd as $a):
                         <th>TANGGAL LAHIR</th>
                         <th>KETERANGAN</th>
 						<th>ACTION</th>
-						
+
 					</tr>
 				</thead>
 				<tbody>
-					<?php 
+					<?php
                 foreach($sppd_dtl as $a):
                 echo "
                 <tr>
@@ -379,35 +354,32 @@ foreach($sppd as $a):
 					</td>
                     <td>$a->tgl_lahir</td>
                     <td>$a->keterangan</td>
-                    
+
 					";
 					echo"<td>
 					<a class='fa fa-trash' onclick='return checkDelete()' href='";base_url();echo"../sppd/dlt_dtl_sppd?n=$a->dtl_sppd&r=$no_sppd' style='color:red'></a>";
 					echo"</td>";
-                    
+
                echo"
                 </tr>
                 ";
-				
+
             endforeach;
             ?>
                 </tfoot>
         </table>
-		
+
         </div>
 </div>
-<?php
-	}
-?>
 </div>
 
 </div>
 </div>
-				
-				
-				
 
-				
+
+
+
+
 <script src="<?php echo base_url().'plugins/jquery/jquery.min.js'?>"></script>
 <script src="<?php echo base_url().'assets/js/jquery.inputpicker.js'?>"></script>
 
@@ -418,7 +390,7 @@ var path = window.location.pathname.split('/');
 var http = window.location.origin + '/' + path[1];
 $('#nip2').on('change', function() {
   alert( this.value );
-  //$("#nama").val('tres');      
+  //$("#nama").val('tres');
   loadnip();
 });
 
@@ -439,7 +411,7 @@ $('#nip2').on('change', function() {
 
 $('#no_spt').on('change', function() {
   alert( this.value );
-  //$("#nama").val('tres');      
+  //$("#nama").val('tres');
   loadspt();
 });
 $('#tgl_pulang').on('change', function() {
@@ -466,6 +438,7 @@ function loadspt() {
 			// alert(d[0]);
 			$("#nip").val(d[0].nip);
 			$("#nospt").val(d[0].no_spt);
+			$("#no_suratm").val(d[0].no_suratm);
 			$("#nama").val(d[0].nama);
 			$("#jabatan").val(d[0].jabatan);
 			if(d[0].jabatan=="KEPALA BADAN"){
@@ -480,11 +453,13 @@ function loadspt() {
 			td=Date.parse(d[0].tgl_pulang);
 			pd=td+1-tp;
 			$("#lama_pd").val(pd);
+			$("#id_usul").val(tbl_spt.id_usul);
 			$("#tgl_pergi").val(d[0].tgl_pergi);
-			$("#tgl_pulang").val(d[0].tgl_pulang);             
+			$("#tgl_pulang").val(d[0].tgl_pulang);
 			
-        } 
+        }
     });
+	
 }
 function loadnip() {
 		var urls = http + "/sppd/loadnama";
@@ -502,10 +477,10 @@ function loadnip() {
 			//  alert(result);
 			var d=$.parseJSON(result);
 			// alert(d[0]);
-			$("#nama2").val(d[0].nama);           
-		
+			$("#nama2").val(d[0].nama);
 
-        } 
+
+        }
     });
 }
 </script>

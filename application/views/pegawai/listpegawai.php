@@ -30,16 +30,20 @@ else
 												<th>GOL / RUANG</th>
 												<th>TMT PANGKAT</th>
 												<th>JABATAN</th>
-												<th>ESELON</th>
+
 												<th>TMT JABATAN</th>
+													<th>ESELON</th>
 												<th>MASA KERJA (TAHUN)</th>
 												<th>MASA KERJA (BULAN)</th>
 												<th>PENDIDIKAN</th>
+														<th>DIKLAT</th>
+																<th>SK CPNS</th>
 													<th>TMT BERKALA</th>
 														<th>TMT PENSIUN</th>
 															<th>UNIT KERJA</th>
 												<th>USERNAME</th>
 												<th>PASSWORD</th>
+															<th>TIPE USER</th>
 						<th>Action</th>
 					</tr>
 				</thead>
@@ -73,6 +77,7 @@ else
 				 		<td>$a->unit_kerja</td>
                     <td>$a->username</td>
                     <td>$a->password</td>
+										<td>$a->tipeuser</td>
                     <td align=left>";
 
                 echo"<a class='fa fa-edit' href='";base_url();echo"addpegawai?n=$a->nip_admin' style='color:blue'></a>

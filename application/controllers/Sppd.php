@@ -62,9 +62,19 @@ class Sppd extends CI_Controller{
         $nip=$this->input->get("nip");
         $table="tbl_user";
             $where=array(
-                'nip'=> $nip,
+                'nip_admin'=> $nip,
             );
             $data=$this->m_main->get1data($table,$where);
+            echo json_encode($data);
+            // var_dump($data);exit;
+    }
+    function loaddetail(){
+        $nip=$this->input->get("nip");
+        $table="tbl_dtl_usul";
+            $where=array(
+                'id_usul'=> $id,
+            );
+            $data= $this->m_main->getwhere('tbl_dtl_usul',$where);
             echo json_encode($data);
             // var_dump($data);exit;
     }
@@ -135,9 +145,9 @@ class Sppd extends CI_Controller{
             $data['sppd_dtl'] = $this->m_main->getwhere('tbl_sppd_dtl',$where);
             
         }
-        $data['nipp'] = $this->m_main->gettable('tbl_user');
+        $data['nipp'] = $this->m_main->gettable('tbl_user'); //
         $data['spt'] = $this->m_sppd->getspt("tbl_disposisi",""); //menampikan spt yg blum diinput sppd
-        // var_dump($data['spt']);exit;
+        // var_dump($data['nipp']);exit;
         $this->template->halaman('sppd/inpsppd',$data);
     }
     function dtl_insert(){
@@ -219,6 +229,8 @@ class Sppd extends CI_Controller{
                     //insert ke tabel surat masuk
                     $no_spt = $this->input->post('nospt');
                     $no_sppd = $this->input->post('no_sppd');
+                    $no_suratm = $this->input->post('no_suratm');
+                    
                     $pejabat = $this->input->post('pejabat_perintah');
                     $nip = $this->input->post('nip');
                     $nama = $this->input->post('nama');
@@ -233,12 +245,14 @@ class Sppd extends CI_Controller{
                     $tgl_pulang = $this->input->post('tgl_pulang');
                     $instansi = $this->input->post('instansi');
                     $mata_anggaran = $this->input->post('mata_anggaran');
+                    $dibuat_tgl = $this->input->post('tglbuat');
                     
                     
                     $table="tbl_sppd";
                     $dataup=array(
                         'no_spt' =>$no_spt,
                         'no_sppd' =>$no_sppd,
+                        'no_suratm' =>$no_suratm,
                         'pejabat_perintah' =>$pejabat,
                         'nip' =>$nip,
                         'nama' =>$nama,
@@ -253,6 +267,7 @@ class Sppd extends CI_Controller{
                         'tgl_pulang'=>$tgl_pulang,
                         'instansi'=>$instansi,
                         'mata_anggaran'=>$mata_anggaran,
+                        'dibuat_tgl' =>$dibuat_tgl,
                         //'created_by'=>$created_by,
                         //'created_time'=>$created_time,
 
@@ -323,7 +338,27 @@ class Sppd extends CI_Controller{
     // }
 
 }
-   
+public function laporan_pdf(){
+
+    $data=array();
+        if($this->input->get('ns')!=""){
+        $id=$this->input->get('ns');
+            $where=array(
+            'no_sppd'=> $id,
+        );
+        $data['sppd']=$this->m_rinci->get1data("tbl_sppd",$where);
+        
+        // var_dump($data['spt']);exit;
+        }
+
+    $this->load->library('pdf');
+
+    $this->pdf->setPaper('A4', 'landscape');
+    $this->pdf->filename = "laporan-petanikode.pdf";
+    $this->pdf->load_view('surat/sptstaf', $data);
+
+
+}
     
 }
  

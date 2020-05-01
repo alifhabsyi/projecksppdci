@@ -36,10 +36,74 @@ class Usulan extends CI_Controller{
 
         redirect('usulan/listusul', 'refresh');
     }
+    function dlt_dtl_usul(){
+        
+        $data=array();
+        // var_dump($this->input->get('n'));exit;
+        if($this->input->get('n')!=""){
+            $id=$this->input->get('n');
+            $table="tbl_dtl_usul";
+            $where=array(
+                'dtl_usul'=> $id,
+            );
+            $data['kwt']=$this->m_rinci->delete_rinci($table,$where);
+        }
+        $id_usul=$this->input->get('r');
+        redirect("usulan/addusul?n=$id_usul", 'refresh');
+        
+    }
     function listusul(){
         $data=array();
         $data['usul'] = $this->m_main->pagesur('tbl_spt');
         $this->template->halaman('usul/listusul',$data);
+    }
+    function listusulpending(){
+        $data=array();
+        $data['usul'] = $this->m_main->pendingusulan('tbl_spt');
+        $this->template->halaman('usul/listusulpending',$data);
+    }
+    function dtl_insert(){
+        $nip = $this->input->post('nip2');
+        // var_dump($no_surat);
+        //Mulai inisiasi cek no agenda atau reset per tahun
+        $where            = array(
+			'nip' => $nip,
+		);
+        $cek              = $this->m_rinci->cekada("tbl_dtl_usul",$where)->num_rows();
+        // var_dump($cek);
+        if($cek==0){    
+            
+                    
+                    //insert ke tabel surat masuk
+                    $id_usul =  $this->input->post('id_usul');
+                     $nip = $this->input->post('nip2');
+                    $nama = $this->input->post('nama2');
+                    $tgl_lahir = $this->input->post('tgl_lahir');
+                    $keterangan = $this->input->post('keterangan');
+                    
+                    $table="tbl_dtl_usul";
+                    $dataup=array(
+                        'id_usul' =>$id_usul,
+                        'nip' =>$nip,
+                        'nama' =>$nama,
+                        'tgl_lahir' =>$tgl_lahir,
+                        'keterangan' =>$keterangan,
+                        
+
+                    );
+                    // var_dump($dataup);
+                    $this->m_rinci->insert_kwt($table,$dataup);
+                    redirect("usulan/addusul?n=$id_usul", 'refresh');
+                    // var_dump($dataup);exit;
+            }           
+        else{
+            ?>
+            <script languange='javascript'>
+                    window.alert('NIP Sudah ada');
+                    window.history.back();
+            </script> 
+            <?php
+        }
     }
     function loadnama(){
         $nip_admin=$this->input->get("nip_admin");
@@ -53,6 +117,11 @@ class Usulan extends CI_Controller{
     }
     function addusul(){
         $data=array();
+        $id="";
+        $where=array(
+            'id_usul'=> $id,
+        );
+        $data['sppd_dtl'] = $this->m_main->getwhere('tbl_dtl_usul',$where);
         if($this->input->get('n')!=""){
             $id=$this->input->get('n');
             $table="tbl_spt";
@@ -60,8 +129,10 @@ class Usulan extends CI_Controller{
                 'id_usul'=> $id,
             );
             $data['usul']=$this->m_rinci->get1data($table,$where);
+            $data['sppd_dtl'] = $this->m_main->getwhere('tbl_dtl_usul',$where); //ganti
         }
         $data['nipp'] = $this->m_main->gettable('tbl_user');
+        $data['nippgw'] = $this->m_main->gettable('tbl_user');
         $this->template->halaman('usul/addusul',$data);
     }
 
@@ -97,9 +168,9 @@ class Usulan extends CI_Controller{
                         //'created_time'=>$created_time,
 
                     );
-                 var_dump($dataup);
+                //  var_dump($dataup);
                   ($this->m_rinci->insert_kwt($table,$dataup));
-                    redirect('Usulan/addusul', 'refresh');
+                    redirect('Usulan/listusul', 'refresh');
                     // var_dump($dataup);exit;
                     }
     function edit_usul(){

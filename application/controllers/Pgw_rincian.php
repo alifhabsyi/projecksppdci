@@ -91,6 +91,7 @@ class Pgw_rincian extends CI_Controller{
                     $unit_kerja = $this->input->post('unit_kerja');
                     $username = $this->input->post('username');
                     $password = $this->input->post('password');
+                              $tipeuser = $this->input->post('tipeuser');
                     $table="tbl_user";
                     $datain=array(
                       'nama' =>$nama,
@@ -114,6 +115,8 @@ class Pgw_rincian extends CI_Controller{
                       'unit_kerja' =>  $unit_kerja ,
                       'username' =>$username,
                       'password' =>$password,
+                      'tipeuser' =>$tipeuser,
+
                         //'created_by'=>$created_by,
                         //'created_time'=>$created_time,
                     );
@@ -143,7 +146,7 @@ class Pgw_rincian extends CI_Controller{
           $unit_kerja = $this->input->post('unit_kerja');
           $username = $this->input->post('username');
           $password = $this->input->post('password');
-
+  $tipeuser = $this->input->post('tipeuser');
             // $where=array(
             //     'nip_admin'=> $nip_admin,
             // );
@@ -200,7 +203,7 @@ class Pgw_rincian extends CI_Controller{
               'unit_kerja' =>  $unit_kerja ,
               'username' =>$username,
               'password' =>$password,
-
+              'tipeuser' =>$tipeuser,
 
             );
             // var_dump($dataup);
