@@ -19,7 +19,8 @@ else
 	<div class=container align=center>
 		<div class="card-body">
 		<div class="table table-responsive">
-			<table id="example1" class="table table-bordered table-striped">
+		<table id="example1" class="table table-bordered table-striped">
+					<a class='fa fa-print' href='exportspt' target='_blank' onClick='window.location.reload();' style='color:red'>Cetak Laporan</a>
 				<thead>
 					<tr>
 						<th>No. SPT</th>
@@ -64,10 +65,10 @@ else
                     <td align=left>";
 
                 echo"
-                        <a class='fa fa-edit' href='";base_url();echo"addspt?n=$a->no_spt' style='color:blue'></a>
+                        <a class='fa fa-edit' href='";base_url();echo"addspt?n=$a->no_suratm' style='color:blue'></a>
 						";
 						if ($tipe==0 || $tipe==2 || $tipe==3 ){
-							echo "<a class='fa fa-print' href='";base_url();echo"../spt_rincian/cetakspt?n=$a->id_spt' target='_blank' onClick='window.location.reload();' style='color:red'></a>";
+							echo "<a class='fa fa-print' href='";base_url();echo"../spt_rincian/cetakspt?n=$a->no_spt' target='_blank' onClick='window.location.reload();' style='color:red'></a>";
 							if ($tipe==0 || $tipe==3 ){
 							echo "<a class='fa fa-trash' onclick='return checkDelete()' href='";base_url();echo"../spt_rincian/dlt_spt?n=$a->id_spt' style='color:red'></a>";
 							}

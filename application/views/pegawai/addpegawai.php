@@ -65,6 +65,7 @@ foreach($pgw as $a):
 			<h3>INPUT DATA PEGAWAI</h3>
 		</div>
 		<div class="card-body ">
+
 		<?php
 			if($this->input->get('n')){
 				echo"<form class='form-horizontal' id='editsub' action='";echo base_url();echo "Pgw_rincian/edit_pgw' method='post' enctype='multipart/form-data'>";
@@ -72,6 +73,7 @@ foreach($pgw as $a):
 				echo "<form class='form-horizontal' id='submit' action='";echo base_url();echo "Pgw_rincian/add_rincipgw' method='post' enctype='multipart/form-data'>";
 			}
 		?>
+						            <a href="importpegawai" class="btn btn-sm btn-warning"><i class="fa fa-file"></i> Import Excel</a><br /><br />
 			<!-- start -->
 	<div class="form-group">
 		<div class=row>
@@ -482,7 +484,7 @@ foreach($pgw as $a):
 	<div class="form-group">
 		<div class=row>
 			<div class="col-sm-2">
-				<label for="">Pangkat</label>
+				<label for="">TIPE USER</label>
 
 			</div>
 			<div class="col-sm-10">
@@ -492,7 +494,7 @@ foreach($pgw as $a):
 							echo "<option selected value='$tipeuser'> $tipeuser </option>";
 				}
 					?>
-					<option>Pilih Pangkat Anda...</option>
+					<option>Pilih Tipe User Anda Anda...</option>
 					<option>0 (ADMIN)</option>
 					<option>1 (BENDAHARA)</option>
 					<option>2 (KASUBAG UMPEG)</option>

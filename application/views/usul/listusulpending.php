@@ -19,7 +19,8 @@ else
 	<div class=container align=center>
 		<div class="card-body">
 		<div class="table table-responsive">
-			<table id="example1" class="table table-bordered table-striped">
+		<table id="example1" class="table table-bordered table-striped">
+					<a class='fa fa-print' href='exportusulanpending' target='_blank' onClick='window.location.reload();' style='color:red'>Cetak Data Usulan Pending</a>
 				<thead>
 					<tr>
 						<th>No Surat Masuk</th>

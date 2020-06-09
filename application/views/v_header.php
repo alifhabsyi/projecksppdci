@@ -288,8 +288,11 @@ else
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Dashboard v2</li>
-            </ol>
+              <li class="breadcrumb-item active">Dashboard v2 - |</li>
+						<ol class="breadcrumb">
+					  <li><a href="#"><i class="fa fa-calendar"></i><?php include"application/jam/jam.php" ?></a> , </li>
+					<li class="active"><?php include "application/jam/tanggal.php" ?></li>
+				</ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
