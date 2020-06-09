@@ -48,7 +48,7 @@ foreach($spt as $a):
 		$status_disposisi=$a->status_disposisi;
 
 	endforeach;
-	// var_dump($tanggal);
+	// var_dump($print);exit;
 }
 ?>
 <br>
@@ -59,12 +59,22 @@ foreach($spt as $a):
 		</div>
 		<div class="card-body ">
 		<?php
+		foreach ($print as $p) :
+			$pnama=$p->nama;
+			$pusul=$p->id_usul;
+			$psurat=$p->no_suratm;
+			$pnip=$p->nip;
+			echo "<a class='fa fa-print' href='sptstaf?u=$p->id_usul&s=$p->no_suratm&n=$p->nip' target='_blank' onClick='window.location.reload();' style='color:red'>$p->nama $p->nip</a>
+			";
+		endforeach;
+
 			if($this->input->get('n')){
 				echo"<form class='form-horizontal' id='editsub' action='";echo base_url();echo "spt_rincian/edit_spt' method='post' enctype='multipart/form-data' >";
 			}else{
 				echo "<form class='form-horizontal' id='submit' action='";echo base_url();echo "spt_rincian/add_rinci' method='post' enctype='multipart/form-data'>";
 			}
 		?>
+		<br>
 				<div class="form-group">
 					<div class=row>
 						<div class="col-sm-2">

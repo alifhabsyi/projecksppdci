@@ -62,12 +62,19 @@ class Usulan extends CI_Controller{
         $data['usul'] = $this->m_main->pendingusulan('tbl_spt');
         $this->template->halaman('usul/listusulpending',$data);
     }
+    function exportusulan(){
+        $data=array();
+        $data['usul'] = $this->m_main->pagesur('tbl_spt');
+        $this->load->view('usul/exportusulan',$data);
+    }
     function dtl_insert(){
         $nip = $this->input->post('nip2');
+        $id_usul =  $this->input->post('id_usul');
         // var_dump($no_surat);
         //Mulai inisiasi cek no agenda atau reset per tahun
         $where            = array(
-			'nip' => $nip,
+            'nip' => $nip,
+            'id_usul' => $id_usul,
 		);
         $cek              = $this->m_rinci->cekada("tbl_dtl_usul",$where)->num_rows();
         // var_dump($cek);

@@ -53,7 +53,16 @@ class Pgw_rincian extends CI_Controller{
         $this->template->halaman('pegawai/listpegawai',$data); //menampilkan file -list_surat.php dimana file ini untuk menampilkan surat yang masuk
 
     }
-
+    function exportpegawai(){
+        $data=array();
+        $data['pgw'] = $this->m_main->pagesur('tbl_user');
+        $this->load->view('pegawai/exportpegawai',$data);
+    }
+    function importpegawai(){
+        $data=array();
+        $data['pgw'] = $this->m_main->pagesur('tbl_user');
+        $this->template->halaman('pegawai/importpegawai',$data);
+    }
     function addpegawai(){
         $data=array();
         if($this->input->get('n')!=""){
@@ -114,7 +123,7 @@ class Pgw_rincian extends CI_Controller{
                       'tmt_pensiun' =>  $tmt_pensiun ,
                       'unit_kerja' =>  $unit_kerja ,
                       'username' =>$username,
-                      'password' =>$password,
+                      'password' =>md5($password),
                       'tipeuser' =>$tipeuser,
 
                         //'created_by'=>$created_by,
@@ -215,4 +224,5 @@ class Pgw_rincian extends CI_Controller{
         // }
 
       }
+
     }

@@ -17,6 +17,14 @@ class m_spt extends CI_Model{
 	function gettable($table){
 		return $query = $this->db->get($table)->result();
 	}
+	function joinsptdtl($table,$where){
+		$this->db->select('tbl_disposisi.no_suratm,dtl.id_usul,dtl.nama,dtl.nip');
+		$this->db->join('tbl_spt as spt', 'tbl_spt spt on tbl_disposisi.no_suratm=spt.no_suratm','left');
+		$this->db->join('tbl_dtl_usul as dtl', 'tbl_dtl_usul dtl on spt.id_usul=dtl.id_usul','left');
+		$this->db->where("tbl_disposisi.no_suratm ='$where'");
+		return $query = $this->db->get($table)->result();
+
+	}
 	function get1data($table,$where){
 		$this->db->where($where);
 		return $query = $this->db->get($table)->result();

@@ -18,6 +18,7 @@ else
 	<div class=container align=center>
 		<div class="card-body">
 		<div class="table table-responsive">
+				<a href="importpegawai" class="btn btn-sm btn-warning"><i class="fa fa-file"></i> Import Excel</a> <a href="exportpegawai" class="btn btn-sm btn-success"><i class="fa fa-file"></i> Export Excel</a><br /><br />
 			<table id="example1" class="table table-bordered table-striped">
 				<thead>
 					<tr>

@@ -87,13 +87,46 @@ class Spt_rincian extends CI_Controller{
             $id=$this->input->get('n');
             $table="tbl_disposisi";
             $where=array(
-                'no_spt'=> $id,
+                'no_suratm'=> $id,
             );
+            $data['print']=$this->m_spt->joinsptdtl('tbl_disposisi',$id);
+            // var_dump( $data['print']);exit;
             $data['spt']=$this->m_spt->get1data($table,$where);
           }
           $data['no_suratm'] = $this->m_spt->getusul("tbl_spt",""); // tampil data yg belum input spt dan status verif
         //   var_dump( $data['no_suratm']);exit;
           $this->template->halaman('spt/addspt',$data);
+    }
+    function sptkabad(){
+        $data=array();
+        
+        $data['nipp'] = $this->m_main->gettable('tbl_user');
+        // var_dump($data['spt']);exit;
+        $this->load->view('surat/sptkabad',$data);
+    }
+    function sptstaf(){
+        $data=array();
+        $nip=$this->input->get('n');
+        $usul=$this->input->get('u');
+        $surat=$this->input->get('s');
+        
+        $table="tbl_user";
+        $where=array(
+            'nip_admin'=> $nip,
+        );
+        $data['nip']=$this->m_main->get1data($table,$where);
+        $table="tbl_disposisi";
+        $where=array(
+            'no_suratm'=> $surat,
+        );
+        $data['spt']=$this->m_main->get1data($table,$where);
+        
+        $this->load->view('surat/sptstaf',$data);
+    }
+    function exportspt(){
+        $data=array();
+        $data['spt'] = $this->m_main->pagesur('tbl_disposisi');
+      $this->load->view('spt/exportspt',$data);
     }
     // end
     // start
