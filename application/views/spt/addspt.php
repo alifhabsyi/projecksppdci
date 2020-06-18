@@ -59,6 +59,7 @@ foreach($spt as $a):
 		</div>
 		<div class="card-body ">
 		<?php
+  	if($this->input->get('n')) {
 		foreach ($print as $p) :
 			$pnama=$p->nama;
 			$pusul=$p->id_usul;
@@ -67,6 +68,7 @@ foreach($spt as $a):
 			echo "<a class='fa fa-print' href='sptstaf?u=$p->id_usul&s=$p->no_suratm&n=$p->nip' target='_blank' onClick='window.location.reload();' style='color:red'>$p->nama $p->nip</a>
 			";
 		endforeach;
+	}
 
 			if($this->input->get('n')){
 				echo"<form class='form-horizontal' id='editsub' action='";echo base_url();echo "spt_rincian/edit_spt' method='post' enctype='multipart/form-data' >";
@@ -107,7 +109,7 @@ foreach($spt as $a):
 					//ini s
 					if($this->input->get('n')){
 						?>
-						<input type="text" readonly  class="form-control" id="no_suratm" name="no_suratm"  value=<?php echo $no_suratmm; ?>>	
+						<input type="text" readonly  class="form-control" id="no_suratm" name="no_suratm"  value=<?php echo $no_suratmm; ?>>
 							<?php
 					}else{
 					?>
@@ -322,10 +324,10 @@ foreach($spt as $a):
 		</div>
 
 	</div>
-	<?php } 
+	<?php }
 	else{
 		echo "<input type='hidden' name='status_disposisi' value='PENDING'>";
-	} 
+	}
 	?>
 
 	<!-- end -->

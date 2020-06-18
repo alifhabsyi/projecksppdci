@@ -5,12 +5,24 @@ if (is_null($nama1))
 	redirect(base_url('login/salah'));
 }
 else
-{ 
- var_dump($nip);var_dump($spt);exit;
-// foreach($nipp as $a):
-		
-// 	$nama=$a->nama;
-// 	endforeach;
+{
+ // var_dump($nip);var_dump($spt);exit;
+foreach($nip as $a):
+
+	$nama=$a->nama;
+	$nip_admin=$a->nip_admin;
+	$pangkat=$a->pangkat;
+	$jabatan_admin=$a->jabatan_admin;
+	endforeach;
+	foreach($spt as $s):
+
+		$dasar=$s->dasar;
+		$tanggal=$s->tanggal;
+		$tujuan_untuk=$s->tujuan_untuk;
+		$tempat=$s->tempat;
+		$dibuat_tgl=$s->dibuat_tgl;
+		$dibuat_oleh=$s->dibuat_oleh;
+		endforeach;
 	// var_dump($surat);
 
 ?>
@@ -64,17 +76,13 @@ Nomor : 094/      / SET</span>
 <span id="_16.7" style=" font-family:Times New Roman; font-size:16.7px; color:#000000">
 Dasar</span>
 </div>
-<div class="pos" id="_175:308" style="top:308;left:175">
+<div class="pos" id="_175:308" style="top:308;left:155">
 <span id="_16.7" style=" font-family:Times New Roman; font-size:16.7px; color:#000000">
 :</span>
 </div>
 <div class="pos" id="_229:308" style="top:308;left:229">
 <span id="_16.7" style=" font-family:Times New Roman; font-size:16.7px; color:#000000">
-Perintah Kepala Badan Kepegawaian Daerah, Pendidikan dan Pelatihan </span>
-</div>
-<div class="pos" id="_229:328" style="top:328;left:229">
-<span id="_16.7" style=" font-family:Times New Roman; font-size:16.7px; color:#000000">
-Kabupaten Hulu Sungai Selatan</span>
+<?php echo $dasar ?> </span>
 </div>
 <div class="pos" id="_349:387" style="top:387;left:349">
 <span id="_15.2" style="font-weight:bold; font-family:Times New Roman; font-size:15.2px; color:#000000">
@@ -94,7 +102,7 @@ Nama </span>
 </div>
 <div class="pos" id="_385:426" style="top:426;left:385">
 <span id="_15.4" style=" font-family:Times New Roman; font-size:15.4px; color:#000000">
-KUKOK SATRIANTO, S.Sos, M.AP</span>
+<?php echo $nama ?></span>
 </div>
 <div class="pos" id="_229:445" style="top:445;left:229">
 <span id="_16.3" style=" font-family:Times New Roman; font-size:16.3px; color:#000000">
@@ -106,7 +114,7 @@ N I P</span>
 </div>
 <div class="pos" id="_385:445" style="top:445;left:385">
 <span id="_17.1" style=" font-family:Times New Roman; font-size:17.1px; color:#000000">
-19690109 199403 1 008</span>
+<?php echo $nip_admin ?></span>
 </div>
 <div class="pos" id="_229:465" style="top:465;left:229">
 <span id="_16.5" style=" font-family:Times New Roman; font-size:16.5px; color:#000000">
@@ -118,7 +126,7 @@ Pangkat/Gol. R</span>
 </div>
 <div class="pos" id="_385:465" style="top:465;left:385">
 <span id="_16.5" style=" font-family:Times New Roman; font-size:16.5px; color:#000000">
-Pembina, IV/a</span>
+<?php echo $pangkat ?></span>
 </div>
 <div class="pos" id="_229:484" style="top:484;left:229">
 <span id="_16.5" style=" font-family:Times New Roman; font-size:16.5px; color:#000000">
@@ -130,19 +138,11 @@ Jabatan</span>
 </div>
 <div class="pos" id="_385:484" style="top:484;left:385">
 <span id="_16.5" style=" font-family:Times New Roman; font-size:16.5px; color:#000000">
-Kepala Bidang Kepegawaian </span>
+<?php echo $jabatan_admin ?></span></span>
 </div>
-<div class="pos" id="_113:523" style="top:523;left:113">
+<div class="pos" id="_100:523" style="top:523;left:100">
 <span id="_16.5" style=" font-family:Times New Roman; font-size:16.5px; color:#000000">
-Untuk      :          Mengikuti  Kegiatan  Peningkatan  Manajerial  Dengan  Asistensi  Peningkatan </span>
-</div>
-<div class="pos" id="_201:543" style="top:543;left:201">
-<span id="_16.5" style=" font-family:Times New Roman; font-size:16.5px; color:#000000">
-Kinerja Unit Penyelenggaraan Publik Dari Deputi Pelayanan Publik Kementerian PAN </span>
-</div>
-<div class="pos" id="_201:563" style="top:563;left:201">
-<span id="_16.5" style=" font-family:Times New Roman; font-size:16.5px; color:#000000">
-& RB.</span>
+Untuk  : <?php echo $tujuan_untuk ?> </span>
 </div>
 <div class="pos" id="_114:611" style="top:611;left:114">
 <span id="_16.5" style=" font-family:Times New Roman; font-size:16.5px; color:#000000">
@@ -154,7 +154,7 @@ Hari/Tanggal</span>
 </div>
 <div class="pos" id="_239:650" style="top:650;left:239">
 <span id="_16.7" style=" font-family:Times New Roman; font-size:16.7px; color:#000000">
-: Rabu  s.d Kamis / 04 Desember s.d 05 Desember 2019 </span>
+: <?php echo $tanggal ?> </span>
 </div>
 <div class="pos" id="_114:686" style="top:686;left:114">
 <span id="_16.7" style=" font-family:Times New Roman; font-size:16.7px; color:#000000">
@@ -162,7 +162,7 @@ Tempat</span>
 </div>
 <div class="pos" id="_239:686" style="top:686;left:239">
 <span id="_16.7" style=" font-family:Times New Roman; font-size:16.7px; color:#000000">
-: Aula Pertemuan Kementerian PAN & RB, Jakarta</span>
+: <?php echo $tempat ?> </span>
 </div>
 <div class="pos" id="_114:729" style="top:729;left:114">
 <span id="_16.7" style=" font-family:Times New Roman; font-size:16.7px; color:#000000">
@@ -174,7 +174,7 @@ Demikian Surat Tugas ini diberikan untuk dipergunakan sebagaimana mestinya.</spa
 </div>
 <div class="pos" id="_534:814" style="top:814;left:534">
 <span id="_16.7" style=" font-family:Times New Roman; font-size:16.7px; color:#000000">
-  Pada tanggal  02 Desember 2019</span>
+  Pada tanggal  <?php echo $dibuat_tgl ?></span>
 </div>
 <div class="pos" id="_575:853" style="top:853;left:575">
 <span id="_15.1" style=" font-family:Times New Roman; font-size:15.1px; color:#000000">
@@ -182,19 +182,19 @@ KEPALA BADAN,</span>
 </div>
 <div class="pos" id="_542:931" style="top:931;left:542">
 <span id="_15.1" style="font-weight:bold; font-family:Times New Roman; font-size:15.1px; color:#000000">
-H. ZULKIPLI, S.Sos, M.AP</span>
+<?php echo $dibuat_oleh ?></span>
 </div>
 <div class="pos" id="_556:950" style="top:950;left:556">
 <span id="_16.7" style=" font-family:Times New Roman; font-size:16.7px; color:#000000">
-Pembina Utama Muda</span>
+<?php echo $jabatan_admin ?></span>
 </div>
 <div class="pos" id="_529:970" style="top:970;left:529">
 <span id="_16.7" style=" font-family:Times New Roman; font-size:16.7px; color:#000000">
-NIP. 19710711 199101 1 002</span>
+NIP. <?php echo $nip_admin ?></span>
 </div>
 </nowrap></nobr>
 </body>
 </html>
 
-<?php 
+<?php
 } ?>
