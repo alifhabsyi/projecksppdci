@@ -65,8 +65,8 @@ foreach($spt as $a):
 			$pusul=$p->id_usul;
 			$psurat=$p->no_suratm;
 			$pnip=$p->nip;
-			echo "<a class='fa fa-print' href='sptstaf?u=$p->id_usul&s=$p->no_suratm&n=$p->nip' target='_blank' onClick='window.location.reload();' style='color:red'>$p->nama $p->nip</a>
-			";
+			// echo "<a class='fa fa-print' href='sptstaf?u=$p->id_usul&s=$p->no_suratm&n=$p->nip' target='_blank' onClick='window.location.reload();' style='color:red'>$p->nama $p->nip</a>
+			// ";
 		endforeach;
 	}
 
@@ -79,16 +79,19 @@ foreach($spt as $a):
 		<br>
 				<div class="form-group">
 					<div class=row>
-						<div class="col-sm-2">
-</div>
+					
+				<div class="col-sm-2">
+				</div>
 				</div>
 				<div class="form-group">
 					<div class=row>
+					<div class="col-sm-1">
+				</div>
 						<div class="col-sm-2">
 							<label for="">No. Spt</label>
 
 						</div>
-						<div class="col-sm-10">
+						<div class="col-sm-8">
 						<textarea class="form-control" name="no_spt" id="no_spt" rows="1" required value='<?php echo $no_spt ; ?>'><?php echo $no_spt ; ?></textarea>
 						<!-- ini s-->
 						<input type="hidden" required class="form-control" id="id_spt" name="id_spt"  value=<?php echo $id_spt; ?>>
@@ -100,11 +103,13 @@ foreach($spt as $a):
 
 				<div class="form-group">
 				<div class=row>
+				<div class="col-sm-1">
+				</div>
 					<div class="col-sm-2">
 						<label for="">No Surat</label>
 
 					</div>
-					<div class="col-sm-10">
+					<div class="col-sm-8">
 					<?php
 					//ini s
 					if($this->input->get('n')){
@@ -133,11 +138,13 @@ foreach($spt as $a):
 					<!-- start -->
 					<div class="form-group">
 						<div class=row>
+						<div class="col-sm-1">
+				</div>
 							<div class="col-sm-2">
 								<label for="">NIP</label>
 
 							</div>
-							<div class="col-sm-10">
+							<div class="col-sm-8">
 							<textarea class="form-control" name="nip" id="nip" rows="1" readonly=true required ><?php echo $nip; ?></textarea>
 							</div>
 						</div>
@@ -146,11 +153,13 @@ foreach($spt as $a):
 					<!-- start -->
 						<div class="form-group">
 							<div class=row>
+							<div class="col-sm-1">
+				</div>
 								<div class="col-sm-2">
 									<label for="">Nama</label>
 
 								</div>
-								<div class="col-sm-10">
+								<div class="col-sm-8">
 								<textarea class="form-control" name="nama" id="nama" rows="1" readonly=true required ><?php echo $nama; ?></textarea>
 								</div>
 
@@ -161,11 +170,13 @@ foreach($spt as $a):
 						<!-- start -->
 						<div class="form-group">
 							<div class=row>
+							<div class="col-sm-1">
+				</div>
 								<div class="col-sm-2">
 									<label for="">Jabatan</label>
 
 								</div>
-								<div class="col-sm-10">
+								<div class="col-sm-8">
 								<textarea class="form-control" name="jabatan" id="jabatan" rows="1" readonly=true required ><?php echo $jabatan; ?></textarea>
 								</div>
 
@@ -176,11 +187,13 @@ foreach($spt as $a):
 						<!-- start -->
 						<div class="form-group">
 							<div class=row>
+							<div class="col-sm-1">
+				</div>
 								<div class="col-sm-2">
 									<label for="">Pangkat</label>
 
 								</div>
-								<div class="col-sm-10">
+								<div class="col-sm-8">
 								<textarea class="form-control" name="pangkat" id="pangkat" rows="1" readonly=true required ><?php echo $pangkat; ?></textarea>
 								</div>
 
@@ -191,11 +204,13 @@ foreach($spt as $a):
 						<!-- start -->
 						<div class="form-group">
 							<div class=row>
+							<div class="col-sm-1">
+				</div>
 								<div class="col-sm-2">
 								<label for="">dasar</label>
 
 								</div>
-								<div class="col-sm-10">
+								<div class="col-sm-8">
 								<textarea class="form-control" name="dasar" id="dasar" rows="1" readonly=true required ><?php echo $dasar; ?></textarea>
 								</div>
 
@@ -207,11 +222,13 @@ foreach($spt as $a):
 				<!-- start -->
 				<div class="form-group">
 					<div class=row>
+					<div class="col-sm-1">
+				</div>
 						<div class="col-sm-2">
 							<label for="">Tujuan </label>
 
 						</div>
-						<div class="col-sm-10">
+						<div class="col-sm-8">
 						<textarea class="form-control" name="tujuan_untuk" id="tujuan_untuk" rows="1" readonly=true required ><?php echo $tujuan_untuk; ?></textarea>
 						</div>
 
@@ -222,11 +239,13 @@ foreach($spt as $a):
 				<!-- start -->
 				<div class="form-group">
 					<div class=row>
+					<div class="col-sm-1">
+				</div>
 						<div class="col-sm-2">
 							<label for="">Tanggal</label>
 
 						</div>
-						<div class="col-sm-10">
+						<div class="col-sm-8">
 						<input type="date" class="form-control"  name="tanggal" id="tanggal" rows="1" required value="<?php echo $tanggal; ?>" >
 						</div>
 
@@ -237,11 +256,13 @@ foreach($spt as $a):
 				<!-- start -->
 				<div class="form-group">
 					<div class=row>
+					<div class="col-sm-1">
+				</div>
 						<div class="col-sm-2">
 							<label for="">Tempat </label>
 
 						</div>
-						<div class="col-sm-10">
+						<div class="col-sm-8">
 						<textarea class="form-control" name="tempat" id="tempat" rows="1" required ><?php echo $tempat; ?></textarea>
 						</div>
 
@@ -252,11 +273,13 @@ foreach($spt as $a):
 				<!-- start -->
 			<div class="form-group">
 				<div class=row>
+				<div class="col-sm-1">
+				</div>
 					<div class="col-sm-2">
 						<label for="">Di buat Oleh</label>
 
 					</div>
-					<div class="col-sm-10">
+					<div class="col-sm-8">
 					<textarea class="form-control" name="dibuat_oleh" id="dibuat_oleh" rows="1"  required > <?php echo $this->session->userdata("nama"); ?></textarea>
 					</div>
 				</div>
@@ -266,11 +289,13 @@ foreach($spt as $a):
 				<!-- start -->
 				<div class="form-group">
 					<div class=row>
+					<div class="col-sm-1">
+				</div>
 						<div class="col-sm-2">
 							<label for="">NIP Admin</label>
 
 						</div>
-						<div class="col-sm-10">
+						<div class="col-sm-8">
 						<textarea class="form-control" name="nip_admin" id="nip_admin" rows="1" required > <?php echo $this->session->userdata("nip_admin"); ?></textarea>
 						</div>
 					</div>
@@ -279,11 +304,13 @@ foreach($spt as $a):
 				<!-- start -->
 				<div class="form-group">
 					<div class=row>
+					<div class="col-sm-1">
+				</div>
 						<div class="col-sm-2">
 							<label for="">Jabatan Admin</label>
 
 						</div>
-						<div class="col-sm-10">
+						<div class="col-sm-8">
 						<textarea class="form-control" name="jabatan_admin" id="jabatan_admin" rows="1" required > <?php echo $this->session->userdata("jabatan_admin"); ?></textarea>
 						</div>
 					</div>
@@ -292,10 +319,12 @@ foreach($spt as $a):
 		<!-- start -->
 		<div class="form-group">
 			<div class=row>
+			<div class="col-sm-1">
+				</div>
 				<div class="col-sm-2">
 					<label for="">Di Buat Tanggal</label>
 				</div>
-				<div class="col-sm-10">
+				<div class="col-sm-8">
 					<input type="date" class="form-control"  name="dibuat_tgl" id="dibuat_tgl" rows="1" required  value="<?php $d= date('Y-m-d');  echo "$d"; ?>"/>
 			</div>
 		</div>
@@ -306,18 +335,20 @@ foreach($spt as $a):
                 ?>
 	<div class="form-group">
 		<div class=row>
+		<div class="col-sm-1">
+				</div>
 			<div class="col-sm-2">
 				<label for="">status</label>
 
 			</div>
-			<div class="col-sm-10">
+			<div class="col-sm-8">
 				<select class="form-control" name="status_disposisi" id="status_disposisi" required value=<?php echo $status_disposisi ?>>
 				<?php if ($status_disposisi=="DIVERIFIKASI"){
 									echo "<option selected>$status_disposisi</option>";
 								} else{ ?>
-								<option>PENDING</option>
+								
 								<option>DIVERIFIKASI</option>
-								<option>DIBATALKAN</option>
+							
 								<?php } ?>
 					</select>
 			</div>
@@ -338,7 +369,7 @@ foreach($spt as $a):
 
                 <button type="submit" name='btn_simpan' id=btn_simpan class="btn btn-primary">Simpan</button>
 
-								    <button type="submit" name='btn_print' id=btn_print class="btn btn-dark">Cetak SPT</button>
+								   
 				</div>
 			</form>
 		</div>

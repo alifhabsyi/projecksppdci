@@ -8,7 +8,9 @@ if (is_null($nama))
 else
 {
 	?>
-<div class="card-header" align=center>
+<!-- <link rel="stylesheet" href="<?php //echo '//cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css'?>"> -->
+  
+<div class="card-header" align="center">
 		<b>
 			<h2>List Pegawai Hulu Sungai Selatan</h2>
 		</b>
@@ -16,64 +18,52 @@ else
 	</div>
 	<!-- /.card-header -->
 
-	<div class=container align=center>
+	<div class=container align="center">
 		<div class="card-body">
 		<div class="table table-responsive">
 		<table id="example1" class="table table-bordered table-striped">
 					<a class='fa fa-print' href='exportspt' target='_blank' onClick='window.location.reload();' style='color:red'>Cetak Laporan</a>
 				<thead>
 					<tr>
-						<th>No. SPT</th>
-                        <th>NIP</th>
-												<th>Nama</th>
-												<th>Jabatan</th>
-												<th>pangkat</th>
-												<th>dasar</th>
-                        <th>tujuan</th>
-												<th>Tanggal</th>
-												<th>Tempat</th>
-														<th>Di Buat Oleh</th>
-														<th>NIP Admin</th>
-														<th>Jabatan Admin</th>
-																<th>Di Buat Tanggal</th>
-																<th>Status</th>
-						<th>Action</th>
+						<th width='20%'>No. SPT</th>
+                        <th width='20%'>NIP</th>
+												<th width='10%'>Nama</th>
+												<th width='5%'>Jabatan</th>
+												<th width='10%'>dasar</th>
+                       							<th width='40%'>tujuan</th>
+												<th width='5%'>Tanggal</th>
+												<th width='5%'>Tempat</th>
+														
+														
 					</tr>
 				</thead>
 				<tbody>
 					<?php
-                foreach($spt as $a):
+				foreach($spt as $a):
+					$tgl=date("d M Y", strtotime($a->tanggal));
                 echo "
                 <tr>
 					<td>
-						<a >$a->no_spt
-						</a>
+						<a class='fa fa-edit' href='";base_url();echo"addspt?n=$a->no_suratm' style='color:blue'>$a->no_spt</a>
+					";
+					if ($tipe==0 || $tipe==2 || $tipe==3 ){
+						echo "<a class='fa fa-print' href='";base_url();echo"../spt_rincian/printsptstaf?n=$a->no_spt&ns=$a->nip' target='_blank' onClick='window.location.reload();' style='color:Green'>Print</a>";
+						if ($tipe==0 || $tipe==3 ){
+						echo "<a class='fa fa-trash' onclick='return checkDelete()' href='";base_url();echo"../spt_rincian/dlt_spt?n=$a->id_spt' style='color:red'></a>";
+						}
+					} 
+					echo"
 					</td>
                     <td>$a->nip </td>
 										<td>$a->nama </td>
 										<td>$a->jabatan </td>
-										<td>$a->pangkat </td>
 										<td>$a->dasar </td>
                     <td>$a->tujuan_untuk </td>
-                    <td>$a->tanggal </td>
+                    <td>$tgl </td>
                     <td>$a->tempat </td>
-										 <td>$a->dibuat_oleh </td>
-										<td>$a->jabatan_admin </td>
-									  <td>$a->nip_admin </td>
-										<td>$a->dibuat_tgl </td>
-										<td>$a->status_disposisi</td>
-                    <td align=left>";
-
-                echo"
-                        <a class='fa fa-edit' href='";base_url();echo"addspt?n=$a->no_suratm' style='color:blue'></a>
-						";
-						if ($tipe==0 || $tipe==2 || $tipe==3 ){
-							echo "<a class='fa fa-print' href='";base_url();echo"../spt_rincian/cetakspt?n=$a->no_spt' target='_blank' onClick='window.location.reload();' style='color:red'></a>";
-							if ($tipe==0 || $tipe==3 ){
-							echo "<a class='fa fa-trash' onclick='return checkDelete()' href='";base_url();echo"../spt_rincian/dlt_spt?n=$a->id_spt' style='color:red'></a>";
-							}
-						}
-                    echo"</td>
+										 
+										
+                   
                 </tr>
                 ";
 
@@ -85,21 +75,10 @@ else
 </div>
 <!-- /.card-body -->
 <!-- Main Footer -->
-
 </div>
 
+<!-- // <script src="<?php //'//cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js'?>"> -->
 <script>
-	$(function () {
-		$("#example1").DataTable();
-		$('#example2').DataTable({
-			"paging": true,
-			"lengthChange": false,
-			"searching": false,
-			"ordering": true,
-			"info": true,
-			"autoWidth": false,
-		});
-	});
 	function checkDelete(){
 		return confirm('Are you sure?');
 	}

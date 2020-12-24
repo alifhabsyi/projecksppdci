@@ -97,6 +97,72 @@ class Spt_rincian extends CI_Controller{
         //   var_dump( $data['no_suratm']);exit;
           $this->template->halaman('spt/addspt',$data);
     }
+    
+    function printsptstaf(){
+        $data=array();
+        $nip=$this->input->get("ns");
+        $table="tbl_user";
+            $where=array(
+                'nip_admin'=> $nip,
+            );
+        $cekjabatan=$this->m_main->get1data($table,$where);
+            foreach($cekjabatan as $tes):
+                $id_usul= $tes->jabatan_admin;    
+            endforeach;
+            // var_dump($cekjabatan);exit;
+            // var_dump((strpos ($id_usul, "KEP"))=== false);var_dump($id_usul);exit;
+            if((strpos ($id_usul, "KEPALA BKD"))=== false){
+                $no_spt=$this->input->get('n');
+                $where=array(
+                    'no_spt'=> $no_spt,
+                );
+                $table="tbl_spt"; 
+                $data['spt']=$this->m_main->get1data($table,$where); //ambil data id usul di tabel spt
+                foreach($data['spt'] as $tes):
+                    $id_usul= $tes->id_usul;    
+                endforeach;
+                $where1=array(
+                    'id_usul'=> $id_usul,
+                );
+                $table1="tbl_dtl_usul"; 
+                $data['dataspt']=$this->m_main->joinusuluser($table1,$where1); //ambil data id usul di tabel spt
+                $where3=array(
+                    'jabatan_admin'=> 'KEPALA BKD',
+                    );//jika staff Kepala BKD
+                    $data['namakepala']=$this->m_rinci->get1data("tbl_user",$where3);
+                
+                // var_dump($id_usul);
+                // var_dump($data['spt']);exit;
+
+                // var_dump($data['spt']);exit;
+                $this->load->view('surat/printsptstaf',$data);
+            }else{
+                $no_spt=$this->input->get('n');
+                $where=array(
+                    'no_spt'=> $no_spt,
+                );
+                $table="tbl_spt"; 
+                $data['spt']=$this->m_main->get1data($table,$where); //ambil data id usul di tabel spt
+                foreach($data['spt'] as $tes):
+                    $id_usul= $tes->id_usul;    
+                endforeach;
+                $where1=array(
+                    'id_usul'=> $id_usul,
+                );
+                $table1="tbl_dtl_usul"; 
+                $data['dataspt']=$this->m_main->joinusuluser($table1,$where1); //ambil data id usul di tabel spt
+                $where3=array(
+                    'jabatan_admin'=> 'SEKRETARIS DAERAH',
+                    );//jika staff Kepala BKD
+                    $data['namakepala']=$this->m_rinci->get1data("tbl_user",$where3);
+                
+                // var_dump($id_usul);
+                // var_dump($data['spt']);exit;
+
+                // var_dump($data['spt']);exit;
+                $this->load->view('surat/printsptkabad',$data);
+            }
+    }
     function sptkabad(){
         $data=array();
         
@@ -120,7 +186,16 @@ class Spt_rincian extends CI_Controller{
             'no_suratm'=> $surat,
         );
         $data['spt']=$this->m_main->get1data($table,$where);
-        
+        $where5=array(
+            'jabatan_admin'=> 'KEPALA BKD',
+            );//jika staff Kepala BKD
+            $data['namakepala']=$this->m_rinci->get1data("tbl_user",$where5);
+            // var_dump($data['namakepala']);exit;
+
+        $where6=array(
+                'jabatan_admin'=> 'Sekretaris Daerah',
+                );//jika Sekretaris daerah
+        $data['namasekda']=$this->m_rinci->get1data("tbl_user",$where6);
         $this->load->view('surat/sptstaf',$data);
     }
     function exportspt(){
@@ -131,6 +206,15 @@ class Spt_rincian extends CI_Controller{
     // end
     // start
     function add_rinci(){
+        $no_spt = $this->input->post('no_spt');
+        // var_dump($no_surat);
+        //Mulai inisiasi cek no agenda atau reset per tahun
+        $where            = array(
+			'no_spt' => $no_spt,
+		);
+        $cek              = $this->m_rinci->cekada("tbl_disposisi",$where)->num_rows();
+        // var_dump($cek);
+        if($cek==0){    
                     //insert ke tabel surat masuk
                     $no_spt = $this->input->post('no_spt');
                     $no_suratm = $this->input->post('no_suratm');
@@ -164,7 +248,7 @@ class Spt_rincian extends CI_Controller{
                         'jabatan_admin' =>$jabatan_admin,
                             'nip_admin' =>$nip_admin,
                         'dibuat_tgl' =>$dibuat_tgl,
-                        'status_disposisi' =>$status_disposisi,
+                        'status_disposisi' =>'DIVERIFIKASI',
                         //'created_by'=>$created_by,
                         //'created_time'=>$created_time,
 
@@ -182,7 +266,17 @@ class Spt_rincian extends CI_Controller{
                     $this->m_spt->insert_spt($table,$dataup);
                     redirect('spt_rincian/listspt', 'refresh');
 
-                  }
+                  
+                }
+                else{
+                    ?>
+                    <script languange='javascript'>
+                            window.alert('No SPT sudah pernah ada');
+                            window.history.back();
+                    </script> 
+                    <?php
+                }
+            }
                   // end
                   // start
 

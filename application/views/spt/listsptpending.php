@@ -68,7 +68,7 @@ else
 					<a class='fa fa-edit' href='";base_url();echo"addspt?n=$a->no_suratm' style='color:blue'></a>
 					";
 					if ($tipe==0 || $tipe==2 || $tipe==3 ){
-						echo "<a class='fa fa-print' href='";base_url();echo"../spt_rincian/cetakspt?n=$a->id_spt' target='_blank' onClick='window.location.reload();' style='color:red'></a>";
+						//echo "<a class='fa fa-print' href='";base_url();echo"../spt_rincian/cetakspt?n=$a->id_spt' target='_blank' onClick='window.location.reload();' style='color:red'></a>";
 						if ($tipe==0 || $tipe==3 ){
 						echo "<a class='fa fa-trash' onclick='return checkDelete()' href='";base_url();echo"../spt_rincian/dlt_spt?n=$a->id_spt' style='color:red'></a>";
 						}

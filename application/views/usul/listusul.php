@@ -16,11 +16,15 @@ else
 	</div>
 	<!-- /.card-header -->
 
-	<div class=container align=center>
+	<div class="row">
+	<div class=container align="center">
 		<div class="card-body">
 		<div class="table table-responsive">
 		<table id="example1" class="table table-bordered table-striped">
+					<div class='row'>
 					<a class='fa fa-print' href='exportusulan' target='_blank' onClick='window.location.reload();' style='color:red'>Cetak Laporan</a>
+					</div>
+					
 				<thead>
 					<tr>
 						<th>No Surat Masuk</th>
@@ -62,7 +66,7 @@ else
                 echo"
 						<a class='fa fa-edit' href='";base_url();echo"addusul?n=$a->id_usul' style='color:blue'></a>";
 				if ($tipe==0 || $tipe==2 || $tipe==3 ){   //rule
-					echo"<a class='fa fa-print' href='";base_url();echo"cetakadm?ns=$a->id_usul' target='_blank' onClick='window.location.reload();' style='color:red'></a>";
+					// echo"<a class='fa fa-print' href='";base_url();echo"cetakadm?ns=$a->id_usul' target='_blank' onClick='window.location.reload();' style='color:red'></a>";
 					if ($tipe==0 || $tipe==3 ){   //rule
 				
 						echo"
@@ -76,13 +80,13 @@ else
             endforeach;
             ?>
                 </tfoot>
-        </table>
+				</table>
         </div>
 </div>
 <!-- /.card-body -->
 <!-- Main Footer -->
-
 </div>
+
 
 
 <script>

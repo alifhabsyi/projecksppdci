@@ -14,13 +14,33 @@ foreach($nip as $a):
 	$pangkat=$a->pangkat;
 	$jabatan_admin=$a->jabatan_admin;
 	endforeach;
-	foreach($spt as $s):
+	if ($jabatan_admin=="KEPALA BKD"){
+		foreach($namasekda as $a):
 
+			$namakep=$a->nama;
+			$nipkep=$a->nip_admin;
+			$pangkatkep=$a->pangkat;
+			$jabatankep=$a->jabatan_admin;
+			$golongankep=$a->golongan;
+			endforeach;
+	}
+	else{
+		foreach($namakepala as $a):
+
+			$namakep=$a->nama;
+			$nipkep=$a->nip_admin;
+			$pangkatkep=$a->pangkat;
+			$jabatankep=$a->jabatan_admin;
+			$golongankep=$a->golongan;
+			endforeach;
+	}
+	foreach($spt as $s):
+		$nospt=$s->no_spt;
 		$dasar=$s->dasar;
-		$tanggal=$s->tanggal;
+		$tanggal=date("d M Y", strtotime($s->tanggal));
 		$tujuan_untuk=$s->tujuan_untuk;
 		$tempat=$s->tempat;
-		$dibuat_tgl=$s->dibuat_tgl;
+		$dibuat_tgl=date("d M Y", strtotime($s->dibuat_tgl));
 		$dibuat_oleh=$s->dibuat_oleh;
 		endforeach;
 	// var_dump($surat);
@@ -70,7 +90,7 @@ Website : http://bkddiklat.hulusungaiselatan.go.id<span style="font-style:italic
 </div>
 <div class="pos" id="_345:269" style="top:269;left:345">
 <span id="_16.7" style=" font-family:Times New Roman; font-size:16.7px; color:#000000">
-Nomor : 094/      / SET</span>
+Nomor : <?php echo $nospt; ?></span>
 </div>
 <div class="pos" id="_100:308" style="top:308;left:100">
 <span id="_16.7" style=" font-family:Times New Roman; font-size:16.7px; color:#000000">
@@ -176,21 +196,22 @@ Demikian Surat Tugas ini diberikan untuk dipergunakan sebagaimana mestinya.</spa
 <span id="_16.7" style=" font-family:Times New Roman; font-size:16.7px; color:#000000">
   Pada tanggal  <?php echo $dibuat_tgl ?></span>
 </div>
-<div class="pos" id="_575:853" style="top:853;left:575">
-<span id="_15.1" style=" font-family:Times New Roman; font-size:15.1px; color:#000000">
-KEPALA BADAN,</span>
+<div class="pos" id="_570:850" style="top:835;left:542">
+
+<span id="_15.1" style=" font-family:Times New Roman; font-size:15.1px; color:#000000"><?php if($jabatan_admin=="KEPALA BKD"){echo "SEKRETARIS DAERAH
+</br>KABUPATEN HULU SUNGAI SELATAN,";}else{echo "KEPALA BADAN";}?>,
+</span>
+
 </div>
 <div class="pos" id="_542:931" style="top:931;left:542">
-<span id="_15.1" style="font-weight:bold; font-family:Times New Roman; font-size:15.1px; color:#000000">
-<?php echo $dibuat_oleh ?></span>
+<span id="_15.1" style="font-weight:bold; font-family:Times New Roman; font-size:15.1px; color:#000000"><?php echo $namakep ?></span>
 </div>
-<div class="pos" id="_556:950" style="top:950;left:556">
-<span id="_16.7" style=" font-family:Times New Roman; font-size:16.7px; color:#000000">
-<?php echo $jabatan_admin ?></span>
+<div class="pos" id="_556:950" style="top:950;left:542">
+<span id="_16.7" style=" font-family:Times New Roman; font-size:16.7px; color:#000000"><?php echo $golongankep ?></span>
 </div>
-<div class="pos" id="_529:970" style="top:970;left:529">
+<div class="pos" id="_529:970" style="top:970;left:542">
 <span id="_16.7" style=" font-family:Times New Roman; font-size:16.7px; color:#000000">
-NIP. <?php echo $nip_admin ?></span>
+NIP. <?php echo $nipkep ?></span>
 </div>
 </nowrap></nobr>
 </body>

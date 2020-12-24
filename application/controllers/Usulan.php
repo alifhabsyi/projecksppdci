@@ -67,6 +67,11 @@ class Usulan extends CI_Controller{
         $data['usul'] = $this->m_main->pagesur('tbl_spt');
         $this->load->view('usul/exportusulan',$data);
     }
+    function exportusulanpending(){
+        $data=array();
+        $data['usul'] = $this->m_main->pendingusulan('tbl_spt');
+        $this->load->view('usul/exportusulanpending',$data);
+    }
     function dtl_insert(){
         $nip = $this->input->post('nip2');
         $id_usul =  $this->input->post('id_usul');
@@ -144,6 +149,15 @@ class Usulan extends CI_Controller{
     }
 
     function add_usul(){
+        $no_suratm = $this->input->post('no_suratm');
+        // var_dump($no_surat);
+        //Mulai inisiasi cek no agenda atau reset per tahun
+        $where            = array(
+			'no_suratm' => $no_suratm,
+		);
+        $cek              = $this->m_rinci->cekada("tbl_spt",$where)->num_rows();
+        // var_dump($cek);
+        if($cek==0){    
                     $id_usul = $this->input->post('id_usul');
                     $no_suratm = $this->input->post('no_suratm');
                     $dasar = $this->input->post('dasar');
@@ -180,6 +194,15 @@ class Usulan extends CI_Controller{
                     redirect('Usulan/listusul', 'refresh');
                     // var_dump($dataup);exit;
                     }
+    else{
+        ?>
+        <script languange='javascript'>
+                window.alert('No surat sudah pernah ada');
+                window.history.back();
+        </script> 
+        <?php
+    }
+}
     function edit_usul(){
         $id_usul = $this->input->post('id_usul');
         $no_suratm = $this->input->post('no_suratm');

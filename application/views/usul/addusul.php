@@ -47,6 +47,30 @@ foreach($usul as $a):
 	// var_dump($surat);
 }
 ?>
+<!-- <style>
+	.act-btn{
+      background:Blue;
+      display: block;
+      width: 50px;
+      height: 50px;
+      line-height: 50px;
+      text-align: center;
+      color: white;
+      font-size: 12px;
+      font-weight: bold;
+      border-radius: 50%;
+      -webkit-border-radius: 50%;
+      text-decoration: none;
+      transition: ease all 0.3s;
+      position: fixed;
+      left: 500px;
+      top:100px;
+    }
+.act-btn:hover{background: blue}
+.footer{
+	bottom: 40px;
+}
+</style> -->
 <br>
 <div class="container">
 	<div class="card">
@@ -56,7 +80,7 @@ foreach($usul as $a):
 		<div class="card-body ">
 		<?php
 			if($this->input->get('n')){
-				echo"<form class='form-horizontal' id='editsub' action='";echo base_url();echo "usulan/edit_usul' method='post' enctype='multipart/form-data' >";
+				echo"<form class='form-horizontal' id='editsub'  action='";echo base_url();echo "usulan/edit_usul' method='post' enctype='multipart/form-data' >";
 			}else{
 				echo "<form class='form-horizontal' id='submit' action='";echo base_url();echo "usulan/add_usul' method='post' enctype='multipart/form-data'>";
 			}
@@ -64,10 +88,13 @@ foreach($usul as $a):
 
 			<div class="form-group">
 					<div class="row">
+						<div class="col-sm-1">
+							
+						</div>
 						<div class="col-sm-2">
 							<label for="">ID Usul</label>
 						</div>
-						<div class="col-sm-10">
+						<div class="col-sm-8">
 							<input type="text" class="form-control" id="id_usul" name="id_usul"
 								placeholder='Auto Generate' readonly=true value=<?php echo $id_usul; ?>>
 						</div>
@@ -77,11 +104,14 @@ foreach($usul as $a):
 
 					<div class="form-group">
 						<div class=row>
+						<div class="col-sm-1">
+							
+							</div>
 							<div class="col-sm-2">
 								<label for="">Nomor Surat Masuk</label>
 
 							</div>
-							<div class="col-sm-10">
+							<div class="col-sm-8">
 							<input type="text" class="form-control" name="no_suratm" id="no_suratm" rows="1"  required value="<?php echo $no_suratm; ?>"/>
 							</div>
 
@@ -90,11 +120,14 @@ foreach($usul as $a):
 	</div>
 				<div class="form-group">
 					<div class=row>
+					<div class="col-sm-1">
+							
+							</div>
 						<div class="col-sm-2">
 							<label for="">Dasar Tugas</label>
 
 						</div>
-						<div class="col-sm-10">
+						<div class="col-sm-8">
 						<textarea class="form-control" name="dasar" id="dasar" rows="1"  required ><?php echo $dasar; ?></textarea>
 						</div>
 
@@ -103,11 +136,14 @@ foreach($usul as $a):
 </div>
 				<div class="form-group">
 					<div class=row>
+					<div class="col-sm-1">
+							
+							</div>
 						<div class="col-sm-2">
 							<label for="">Nama</label>
 
 						</div>
-						<div class="col-sm-10">
+						<div class="col-sm-8">
 						<textarea class="form-control" name="nama" id="nama" rows="1" readonly=true required ><?php echo $nama; ?></textarea>
 						</div>
 
@@ -116,11 +152,14 @@ foreach($usul as $a):
 </div>
 				<div class="form-group">
 					<div class=row>
+					<div class="col-sm-1">
+							
+							</div>
 						<div class="col-sm-2">
 							<label for="">NIP</label>
 
 						</div>
-						<div class="col-sm-10">
+						<div class="col-sm-8">
 						<?php
 						if($this->input->get('n')){
 							?>
@@ -134,7 +173,7 @@ foreach($usul as $a):
 								<?php
 
 								foreach ($nipp as $pgw):
-									echo "<option value='$pgw->nip_admin'>$pgw->nip_admin</option>";
+									echo "<option value='$pgw->nip_admin'>$pgw->nip_admin $pgw->nama</option>";
 								endforeach;
 								?>
 
@@ -149,11 +188,14 @@ foreach($usul as $a):
 				</div>
 				<div class="form-group">
 					<div class=row>
+					<div class="col-sm-1">
+							
+							</div>
 						<div class="col-sm-2">
 							<label for="">Jabatan</label>
 
 						</div>
-						<div class="col-sm-10">
+						<div class="col-sm-8">
 						<textarea class="form-control" name="jabatan_admin" id="jabatan_admin" rows="1" readonly=true required ><?php echo $jabatan_admin; ?></textarea>
 						</div>
 
@@ -162,11 +204,14 @@ foreach($usul as $a):
 				</div>
 				<div class="form-group">
 					<div class=row>
+					<div class="col-sm-1">
+							
+							</div>
 						<div class="col-sm-2">
 							<label for="">Pangkat</label>
 
 						</div>
-						<div class="col-sm-10">
+						<div class="col-sm-8">
 						<textarea class="form-control" name="pangkat" id="pangkat" rows="1" readonly=true required ><?php echo $pangkat; ?></textarea>
 						</div>
 
@@ -175,11 +220,14 @@ foreach($usul as $a):
 				</div>
 				<div class="form-group">
 					<div class=row>
+					<div class="col-sm-1">
+							
+							</div>
 						<div class="col-sm-2">
 							<label for="">Tujuan Untuk</label>
 
 						</div>
-						<div class="col-sm-10">
+						<div class="col-sm-8">
 						<textarea class="form-control" 
 						<?php if($tgl_pergi!="" && $tipe==3){ ?> readonly <?php } ?>
 						name="tujuan_untuk" id="tujuan_untuk" rows="1" required ><?php echo $tujuan_untuk; ?></textarea>
@@ -189,11 +237,14 @@ foreach($usul as $a):
 				</div>
 				<div class="form-group">
 					<div class=row>
+					<div class="col-sm-1">
+							
+							</div>
 						<div class="col-sm-2">
 							<label for="">Tempat Tujuan</label>
 
 						</div>
-						<div class="col-sm-10">
+						<div class="col-sm-8">
 						<textarea class="form-control" 
 						<?php if($tgl_pergi!="" && $tipe==3){ ?> readonly <?php } ?>
 						name="tempat_tujuan" id="tempat_tujuan" rows="1" required ><?php echo $tempat_tujuan; ?></textarea>
@@ -205,11 +256,14 @@ foreach($usul as $a):
 
 				<div class="form-group">
 					<div class=row>
+					<div class="col-sm-1">
+							
+							</div>
 						<div class="col-sm-2">
 							<label for="">Tanggal Pergi</label>
 
 						</div>
-						<div class="col-sm-4">
+						<div class="col-sm-3">
 							<div class="form-group">
 							
 								<input type="date" 
@@ -220,7 +274,7 @@ foreach($usul as $a):
 						<div class="col-sm-2">
 							<label for="">Tanggal Pulang</label>
 </div>
-						<div class="col-sm-4">
+						<div class="col-sm-3">
 							<div class="form-group">
 								<input type="date" 
 								<?php if($tgl_pergi!="" && $tipe==3){ ?> readonly <?php } ?>
@@ -236,11 +290,14 @@ foreach($usul as $a):
 				<b><h4 align=center>VERIFIKASI USULAN</h4></b>
 				<div class="form-group">
 					<div class=row>
+					<div class="col-sm-1">
+							
+							</div>
 						<div class="col-sm-2">
 							<label for="">Tanggal Pergi</label>
 
 						</div>
-						<div class="col-sm-4">
+						<div class="col-sm-3">
 							<div class="form-group">
 								<input type="date" class="form-control" name="tgl_pergi1" id="tgl_pergi1" required aria-describedby="helpId" value=<?php echo $tgl_pergi ?>>
 						</div>
@@ -248,7 +305,7 @@ foreach($usul as $a):
 						<div class="col-sm-2">
 							<label for="">Tanggal Pulang</label>
 </div>
-						<div class="col-sm-4">
+						<div class="col-sm-3">
 							<div class="form-group">
 								<input type="date" class="form-control" name="tgl_pulang1"
 									aria-describedby="helpId" id="tgl_pulang1" required value=<?php echo $tgl_pulang ?>>
@@ -259,11 +316,14 @@ foreach($usul as $a):
 				</div>
 				<div class="form-group">
 					<div class=row>
+					<div class="col-sm-1">
+							
+							</div>
 						<div class="col-sm-2">
 							<label for="">Status</label>
 
 						</div>
-						<div class="col-sm-10">
+						<div class="col-sm-8">
 							<select class="form-control" name="status_spt" id="status_spt" required value=<?php echo $status_spt ?>>
 								<?php if ($status_spt=="DIVERIFIKASI"){
 									echo "<option selected>$status_spt</option>";
@@ -283,19 +343,25 @@ foreach($usul as $a):
 				} 
 				?>
 
+				<div class="main-footer" align='center'>
+					<button type="reset" name='batals' id='batals' class="btn btn-danger ">Batal</button>
+
+					<button type="submit" name='btn_simpan' id=btn_simpan class="btn btn-primary ">Simpan</button>
+				</div>
 
 
-
-				<div class "form-group" align=center>
+				<!-- <div class "form-group" align=center>
                 <button type="reset" name='batals' id='batals' class="btn btn-danger">Batal</button>
 
                 <button type="submit" name='btn_simpan' id=btn_simpan class="btn btn-primary">Simpan</button>
 				</div>
-			</form>
+			</form> -->
 			<br>
 			<?php if ($tipe==0 || $tipe==3){   //rule
                 ?>
 				
+				
+			</form>
 			<?php
 		
 	if($this->input->get('n')){
@@ -307,17 +373,20 @@ foreach($usul as $a):
 
 				<div class="form-group">
 					<div class=row>
+					<div class="col-sm-1">
+							
+							</div>
 						<div class="col-sm-2">
 							<label for="">NIP</label>
 
 						</div>
-						<div class="col-sm-4">
+						<div class="col-sm-3">
 							<select class="form-control" name="nip2" id="nip2" required>
 								<option value="pilih">-- SILAHKAN PILIH NIP --</option>
 								<?php
 
 								foreach ($nippgw as $pgw):
-									echo "<option value='$pgw->nip_admin'>$pgw->nip_admin</option>";
+									echo "<option value='$pgw->nip_admin'>$pgw->nip_admin || $pgw->nama</option>";
 								endforeach;
 								?>
 
@@ -329,7 +398,7 @@ foreach($usul as $a):
 							<label for="">Nama</label>
 
 						</div>
-						<div class="col-sm-5">
+						<div class="col-sm-4">
 						<textarea class="form-control" name="nama2" id="nama2" rows="1" readonly=true required ></textarea>
 						</div>
 
@@ -338,11 +407,14 @@ foreach($usul as $a):
 				</div>
 				<div class="form-group">
 					<div class=row>
+					<div class="col-sm-1">
+							
+							</div>
 						<div class="col-sm-2">
 							<label for="">Tanggal Lahir</label>
 
 						</div>
-						<div class="col-sm-4">
+						<div class="col-sm-3">
 							<div class="form-group">
 								<input type="date" class="form-control" name="tgl_lahir" required aria-describedby="helpId"
 									placeholder="" required id="tgl_lahir">
@@ -352,7 +424,7 @@ foreach($usul as $a):
 							<label for="">Keterangan</label>
 
 						</div>
-						<div class="col-sm-4">
+						<div class="col-sm-3">
 						<textarea class="form-control" name="keterangan" id="keterangan" rows="1"  required ></textarea>
 						</div>
 						<div class="col-sm-1">
@@ -363,13 +435,19 @@ foreach($usul as $a):
 				</div>
 				</form>
 							<?php } ?>
+	
 
 
 <div class=container align=center>
+<div class=row>
+					<div class="col-sm-1">
+							
+							</div>
+	<div class="col-sm-10">
 		<div class="card-body">
 		<b><h4>DATA PENGIKUT SPPD</h4></b>
-		<div class="table table-responsive">
-			<table id="example1" class="table table-bordered table-striped">
+		<div class="table">
+			<table id="" class="table table-bordered table-striped">
 				<thead>
 					<tr>
 						<th>NAMA</th>
@@ -412,7 +490,9 @@ foreach($usul as $a):
                 </tfoot>
         </table>
 
-        </div>
+		</div>
+		
+</div>
 </div>
 <?php
 	}
@@ -432,12 +512,13 @@ foreach($usul as $a):
 var path = window.location.pathname.split('/');
 var http = window.location.origin + '/' + path[1];
 $('#nip2').on('change', function() {
-  alert( this.value );
+//   alert( this.value );
   //$("#nama").val('tres');
   loadnip2();
 });
 $('#nip_admin').on('change', function() {
-  alert( this.value );
+//   alert( this.value );
+//   alert('tes');
   //$("#nama").val('tres');
   loadnip();
 });
@@ -484,7 +565,7 @@ function loadnip() {
         success: function(result) {
 			// alert(result);
 			var d=$.parseJSON(result);
-			// alert(d[0]);
+			// alert(d[0].nama);
 			$("#nama").val(d[0].nama);
 			$("#jabatan_admin").val(d[0].jabatan_admin);
 			$("#pangkat").val(d[0].pangkat);

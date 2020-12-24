@@ -44,9 +44,13 @@ else
                     <td align=center>";
                     
                 echo"
-                        <a class='fa fa-edit' href='";base_url();echo"inpsppd?n=$a->no_sppd' style='color:blue'></a>
-						<a class='fa fa-trash' onclick='return checkDelete()' href='";base_url();echo"../sppd/dlt_sppd?n=$a->no_sppd' style='color:red'></a>
-						<a class='fa fa-print' href='";base_url();echo"sppdkabad?ns=$a->no_sppd' target='_blank' onClick='window.location.reload();' style='color:red'>Finish</a>";
+								
+				
+				<a class='fa fa-edit' href='";base_url();echo"inpsppd?n=$a->no_sppd' style='color:blue'></a>
+				<a class='fa fa-print' href='";base_url();echo"../sppd/sppdkabad?ns=$a->nip&n=$a->no_sppd' target='_blank' style='color:green'></a>
+		
+				<a class='fa fa-trash' onclick='return checkDelete()' href='";base_url();echo"../sppd/dlt_sppd?n=$a->no_sppd' style='color:red'></a>
+						";
                     echo"</td>
                 </tr>
                 ";
