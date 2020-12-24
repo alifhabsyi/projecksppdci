@@ -47,12 +47,15 @@ if (is_null($nama))
 	</div>
 	<div class="mr-6">TOTAL <b><?php echo $total_usul?></b> Data Usulan!</div>
 				</div>
+				<?php if ($tipe==0 || $tipe==3){ ?>
+
 				<a class="card-footer text-white clearfix small z-1" href="Usulan/listusul">
 				<span class="float-left">View Details</span>
 				<span class="float-right">
 					<i class="fas fa-angle-right"></i>
 				</span>
 				</a>
+				<?php } ?>
 			</div>
 			</div>
 			<div class="col-xl-3 col-sm-6 mb-3">
@@ -64,12 +67,15 @@ if (is_null($nama))
 			</div>
 			<div class="mr-6">TOTAL <b><?php echo $total_spt?></b> Data SPT! </div>
 				</div>
+				<?php if ($tipe==0 || $tipe==3){ ?>
+
 				<a class="card-footer text-white clearfix small z-1" href="Spt_rincian/listspt">
 				<span class="float-left">View Details</span>
 				<span class="float-right">
 					<i class="fas fa-angle-right"></i>
 				</span>
 				</a>
+				<?php } ?>
 			</div>
 			</div>
 			<div class="col-xl-3 col-sm-6 mb-3">
@@ -81,12 +87,15 @@ if (is_null($nama))
 			</div>
 			<div class="mr-6">TOTAL <b><?php echo $total_kwitansi?></b> Data Kwintasi! </div>
 				</div>
+				<?php if ($tipe==0 || $tipe==3){ ?>
+
 				<a class="card-footer text-white clearfix small z-1" href="Rincian/listrincian">
 				<span class="float-left">View Details</span>
 				<span class="float-right">
 					<i class="fas fa-angle-right"></i>
 				</span>
 				</a>
+				<?php } ?>
 			</div>
 			</div>
 			<div class="col-xl-3 col-sm-6 mb-3">
@@ -98,12 +107,15 @@ if (is_null($nama))
 			</div>
 			<div class="mr-6">TOTAL <b><?php echo $total_sppd?></b> Data SPPD!</div>
 				</div>
+				<?php if ($tipe==0 || $tipe==3){ ?>
+
 				<a class="card-footer text-white clearfix small z-1" href="Sppd/listsppd">
 				<span class="float-left">View Details</span>
 				<span class="float-right">
 					<i class="fas fa-angle-right"></i>
 				</span>
 				</a>
+				<?php } ?>
 			</div>
 			</div>
 		</div>

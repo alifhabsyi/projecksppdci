@@ -17,7 +17,7 @@ else
 	
 	<div class=container align=center>
 		<div class="card-body">
-		<div class="table table-responsive">	
+		<div class="table">	
 			<table id="example1" class="table table-bordered table-striped">
 				<thead>
 					<tr>
@@ -49,7 +49,7 @@ else
                 echo"
                         <a class='fa fa-edit' href='";base_url();echo"addrincian?n=$a->no_kwt' style='color:blue'></a>
 						<a class='fa fa-trash' onclick='return checkDelete()' href='";base_url();echo"../rincian/dlt_rinci?n=$a->no_kwt' style='color:red'></a>
-						<a class='fa fa-print' href='";base_url();echo"cetakadm?ns=$a->id_rinci' target='_blank' onClick='window.location.reload();' style='color:red'>Finish</a>";
+						<a class='fa fa-print' href='";base_url();echo"../exportexcel/export?ns=$a->no_sppd' target='_blank' onClick='window.location.reload();' style='color:Black'>Print</a>";
                     echo"</td>
                 </tr>
                 ";

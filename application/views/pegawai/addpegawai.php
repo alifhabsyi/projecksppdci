@@ -78,7 +78,7 @@ foreach($pgw as $a):
 	<div class="form-group">
 		<div class=row>
 			<div class="col-sm-2">
-				<label for="">Nama</label>
+				<label for=""> &nbsp;Nama</label>
 
 			</div>
 			<div class="col-sm-10">
@@ -93,7 +93,7 @@ foreach($pgw as $a):
 				<div class="form-group">
 					<div class=row>
 						<div class="col-sm-2">
-							<label for="">NIP</label>
+							<label for=""> &nbsp;NIP</label>
 
 						</div>
 						<div class="col-sm-10">
@@ -107,7 +107,7 @@ foreach($pgw as $a):
 					<div class="form-group">
 						<div class=row>
 							<div class="col-sm-2">
-								<label for="">Tempat Lahir</label>
+								<label for=""> &nbsp;Tempat Lahir</label>
 							</div>
 							<div class="col-sm-10">
 							<textarea class="form-control" name="tempat_lahir" id="tempat_lahir" rows="1" required ><?php echo $tempat_lahir; ?></textarea>
@@ -119,7 +119,7 @@ foreach($pgw as $a):
 				<div class="form-group">
 					<div class=row>
 						<div class="col-sm-2">
-							<label for="">tanggal Lahir</label>
+							<label for=""> &nbsp;tanggal Lahir</label>
 
 						</div>
 						<div class="col-sm-10">
@@ -135,7 +135,7 @@ foreach($pgw as $a):
 				<div class="form-group">
 					<div class=row>
 						<div class="col-sm-2">
-							<label for="">Kelamin</label>
+							<label for=""> &nbsp;Kelamin</label>
 
 						</div>
 						<div class="col-sm-10">
@@ -160,7 +160,7 @@ foreach($pgw as $a):
 				<div class="form-group">
 					<div class=row>
 						<div class="col-sm-2">
-							<label for="">Pangkat</label>
+							<label for=""> &nbsp;Pangkat</label>
 
 						</div>
 						<div class="col-sm-10">
@@ -197,7 +197,7 @@ foreach($pgw as $a):
 				<div class="form-group">
 					<div class=row>
 						<div class="col-sm-2">
-							<label for="">Gol /Ruang</label>
+							<label for=""> &nbsp;Gol /Ruang</label>
 
 						</div>
 						<div class="col-sm-10">
@@ -234,7 +234,7 @@ foreach($pgw as $a):
 				<div class="form-group">
 					<div class=row>
 						<div class="col-sm-2">
-							<label for="">TMT Pangkat</label>
+							<label for=""> &nbsp;TMT Pangkat</label>
 
 						</div>
 						<div class="col-sm-10">
@@ -249,7 +249,7 @@ foreach($pgw as $a):
 				<div class="form-group">
 					<div class=row>
 						<div class="col-sm-2">
-							<label for="">Jabatan Admin</label>
+							<label for=""> &nbsp;Jabatan Admin</label>
 
 						</div>
 						<div class="col-sm-10">
@@ -295,7 +295,7 @@ foreach($pgw as $a):
 				<div class="form-group">
 					<div class=row>
 						<div class="col-sm-2">
-							<label for="">TMT jabatan</label>
+							<label for=""> &nbsp;TMT jabatan</label>
 
 						</div>
 						<div class="col-sm-10">
@@ -307,7 +307,7 @@ foreach($pgw as $a):
 				<div class="form-group">
 					<div class=row>
 						<div class="col-sm-2">
-							<label for="">Eselon</label>
+							<label for=""> &nbsp;Eselon</label>
 
 						</div>
 						<div class="col-sm-10">
@@ -338,7 +338,7 @@ foreach($pgw as $a):
 				<div class="form-group">
 					<div class=row>
 						<div class="col-sm-2">
-							<label for="">masa kerja (TAHUN)</label>
+							<label for=""> &nbsp;masa kerja (TAHUN)</label>
 
 						</div>
 						<div class="col-sm-10">
@@ -352,7 +352,7 @@ foreach($pgw as $a):
 				<div class="form-group">
 					<div class=row>
 						<div class="col-sm-2">
-							<label for="">masa kerja (BULAN)</label>
+							<label for=""> &nbsp;masa kerja (BULAN)</label>
 
 						</div>
 						<div class="col-sm-10">
@@ -367,7 +367,7 @@ foreach($pgw as $a):
 				<div class="form-group">
 					<div class=row>
 						<div class="col-sm-2">
-							<label for="">Pendidikan</label>
+							<label for=""> &nbsp;Pendidikan</label>
 						</div>
 						<div class="col-sm-10">
 							<select class="form-control" name="pendidikan" id="pendidikan" required />
@@ -394,7 +394,7 @@ foreach($pgw as $a):
 				<div class="form-group">
 					<div class=row>
 						<div class="col-sm-2">
-							<label for="">Diklat</label>
+							<label for=""> &nbsp;Diklat</label>
 						</div>
 						<div class="col-sm-10">
 						<input type="text" class="form-control" name="diklat" id="diklat" rows="1" value="<?php echo $diklat; ?>" />
@@ -407,7 +407,7 @@ foreach($pgw as $a):
 				<div class="form-group">
 					<div class=row>
 						<div class="col-sm-2">
-							<label for="">SK CPNS</label>
+							<label for=""> &nbsp;SK CPNS</label>
 						</div>
 						<div class="col-sm-10">
 						<input type="text" class="form-control" name="sk_cpns" id="sk_cpns" rows="1" value="<?php echo $sk_cpns; ?>"/>
@@ -420,7 +420,7 @@ foreach($pgw as $a):
 				<div class="form-group">
 					<div class=row>
 						<div class="col-sm-2">
-							<label for="">TMT berkala</label>
+							<label for=""> &nbsp;TMT berkala</label>
 
 						</div>
 						<div class="col-sm-10">
@@ -434,7 +434,7 @@ foreach($pgw as $a):
 				<div class="form-group">
 					<div class=row>
 						<div class="col-sm-2">
-							<label for="">TMT Pensiun</label>
+							<label for=""> &nbsp;TMT Pensiun</label>
 
 						</div>
 						<div class="col-sm-10">
@@ -446,7 +446,7 @@ foreach($pgw as $a):
 		<div class="form-group">
 			<div class=row>
 				<div class="col-sm-2">
-					<label for="">Unit Kerja</label>
+					<label for=""> &nbsp;Unit Kerja</label>
 				</div>
 				<div class="col-sm-10">
 				<input type="text" class="form-control" name="unit_kerja" id="unit_kerja" rows="1" value="<?php echo $unit_kerja; ?>" />
@@ -459,7 +459,7 @@ foreach($pgw as $a):
 		<div class="form-group">
 			<div class=row>
 				<div class="col-sm-2">
-					<label for="">USERNAME</label>
+					<label for=""> &nbsp;USERNAME</label>
 				</div>
 				<div class="col-sm-10">
 				<input type="text" class="form-control" name="username" id="username" rows="1" value="<?php echo $username; ?>"/>
@@ -472,7 +472,7 @@ foreach($pgw as $a):
 	<div class="form-group">
 		<div class=row>
 			<div class="col-sm-2">
-				<label for="">PASSWORD</label>
+				<label for=""> &nbsp;PASSWORD</label>
 			</div>
 			<div class="col-sm-10">
 			<input type="password" class="form-control" name="password" id="password" rows="1" value="<?php echo $password; ?>"/>
@@ -484,7 +484,7 @@ foreach($pgw as $a):
 	<div class="form-group">
 		<div class=row>
 			<div class="col-sm-2">
-				<label for="">TIPE USER</label>
+				<label for=""> &nbsp;TIPE USER</label>
 
 			</div>
 			<div class="col-sm-10">

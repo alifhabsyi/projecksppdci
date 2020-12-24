@@ -61,11 +61,15 @@ class Rincian extends CI_Controller{
                 'no_kwt'=> $id,
             );
             $data['rinci']=$this->m_rinci->get1data($table,$where);
-            
+            // var_dump($data['rinci']);exit;
+            $this->template->halaman('rincian/addrincian',$data);
             
         }
         $data['sppd'] = $this->m_sppd->getsppd("tbl_sppd",""); //menampikan sppd yg blum diinput rincian
+        $data['rinci'] = $this->m_sppd->getrinci2("tbl_sppd_dtl",""); //menampikan sppd yg blum diinput rincian
+        $data['rinci1'] = $this->m_sppd->getrinci("tbl_sppd_dtl",""); //menampikan sppd yg blum diinput rincian
         
+        //   var_dump($data['rinci']);exit;
         $this->template->halaman('rincian/addrincian',$data);
     }
     function loadsppd(){
@@ -78,17 +82,33 @@ class Rincian extends CI_Controller{
             echo json_encode($data);
             // var_dump($data);exit;
     }
+    function loaddetail(){
+        $id_usul=$this->input->get("id_usul");
+        $table="tbl_dtl_usul";
+            $where=array(
+                'id_usul'=> $id_usul,
+            );
+            $data=array();
+            //$data["detailusul"]= $this->m_main->getwhere('tbl_dtl_usul',$where);
+            $data['detailusul'] = $this->m_sppd->getrinci3("tbl_sppd_dtl",""); //menampikan sppd yg blum diinput rincian
+        
+            echo json_encode($data);
+            // $this->template->halaman('sppd/inpsppd',$data);
+            //   var_dump($data["detailusul"]);exit;
+    }
     function add_rinci(){
         
-        // $no_surat = $this->input->post('no_surat');
+        $no_sppd = $this->input->post('nosppd');
+        $nip = $this->input->post('nip');
         // // var_dump($no_surat);
         // //Mulai inisiasi cek no agenda atau reset per tahun
-        // $where            = array(
-		// 	'no_surat' => $no_surat,
-		// );
-        // $cek              = $this->m_rinci->cekada("tbl_surat_masuk",$where)->num_rows();
-        // // var_dump($cek);
-        // if($cek==0){    
+         $where            = array(
+             'no_sppd' => $no_sppd,
+             'nip' => $nip,
+		);
+        $cek              = $this->m_rinci->cekada("tbl_rinci",$where)->num_rows();
+        // var_dump($cek);exit;
+        if($cek==0){    
             
                     //Mulai inisiasi cek no agenda atau reset per tahun
                     $bulann = date('m');
@@ -113,7 +133,7 @@ class Rincian extends CI_Controller{
                     //selesai update docno
                     //insert ke tabel surat masuk
                     $no_kwt = $this->input->post('no_kwt');
-                    $no_sppd = $this->input->post('no_sppd');
+                    $no_sppd = $this->input->post('nosppd');
                     $nip = $this->input->post('nip');
                     $nama = $this->input->post('nama');
                     $jabatan = $this->input->post('jabatan');
@@ -157,15 +177,15 @@ class Rincian extends CI_Controller{
                     $this->m_rinci->insert_kwt($table,$dataup);
                     redirect('rincian/listrinci', 'refresh');
                     // var_dump($dataup);exit;
-            // }           
-        // else{
-        //     ?>
-        //     <script languange='javascript'>
-        //             window.alert('No surat sudah pernah ada');
-        //             window.history.back();
-        //     </script> 
-        //     <?php
-        // }
+            }           
+        else{
+            ?>
+            <script languange='javascript'>
+                    window.alert('Rincian Sudah Pernah Diinput');
+                    window.history.back();
+            </script> 
+            <?php
+        }
  
     }
     function edit_rinci(){

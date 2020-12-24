@@ -62,7 +62,7 @@ else
 					echo"
 					<a class='fa fa-edit' href='";base_url();echo"addusul?n=$a->id_usul' style='color:blue'></a>";
 			if ($tipe==0 || $tipe==2 || $tipe==3 ){   //rule
-				echo"<a class='fa fa-print' href='";base_url();echo"cetakadm?ns=$a->id_usul' target='_blank' onClick='window.location.reload();' style='color:red'></a>";
+				//echo"<a class='fa fa-print' href='";base_url();echo"cetakadm?ns=$a->id_usul' target='_blank' onClick='window.location.reload();' style='color:red'></a>";
 				if ($tipe==0 || $tipe==3 ){   //rule
 			
 					echo"

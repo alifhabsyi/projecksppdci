@@ -50,6 +50,13 @@ class M_main extends CI_Model{
 		return $query = $this->db->get($table)->result();
 
 	}
+	function joinusuluser($table,$where){
+		$this->db->select('*');
+		$this->db->where($where);
+		$this->db->join('tbl_user as tbu', 'tbu.nip_admin = tbl_dtl_usul.nip','left');
+		return $query = $this->db->get($table)->result();
+
+	}
 	function joinprint($table,$where){
 		$this->db->select('*');
 		$this->db->where($where);
@@ -126,6 +133,7 @@ class M_main extends CI_Model{
 		}
 		return $ctsm;
 	}
+	
 	function countds(){
 		$kd_div=$this->session->userdata('kd_div');
 		$kd_jabatan=$this->session->userdata('kd_jabatan');

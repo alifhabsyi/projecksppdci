@@ -19,12 +19,20 @@ else
 
   <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="<?php echo base_url().'plugins/fontawesome-free/css/all.min.css'?>">
+  <!-- <link rel="stylesheet" href="<?php //'cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css'?>"> -->
+  
   <!-- overlayScrollbars -->
   <link rel="stylesheet" href="<?php echo base_url().'plugins/overlayScrollbars/css/OverlayScrollbars.min.css'?>">
   <!-- Theme style -->
   <link rel="stylesheet" href="<?php echo base_url().'dist/css/adminlte.min.css'?>">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
+  <link rel="stylesheet" href="<?php echo base_url().'assets/css/bootstrap.min.css'?>">
+  <link rel="stylesheet" href="<?php echo base_url().'assets/css/dataTables.bootstrap.min.css'?>">
+  
+  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
+  <!-- <link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap.min.css"> -->
 </head>
 <body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
 <div class="wrapper">
@@ -188,12 +196,12 @@ else
                   <p>List SPT</p>
                 </a>
               </li>
-							<li class="nav-item">
+							<!-- <li class="nav-item">
 								<a href="/sppd/Spt_rincian/listsptpending" class="nav-link">
 									<i class="far fa-circle nav-icon text-info"></i>
 									<p>List SPT PENDING!</p>
 								</a>
-							</li>
+							</li> -->
             </ul>
           </li>
           <?php } ?>
